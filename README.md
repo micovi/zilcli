@@ -1,16 +1,30 @@
-zilcli
+# zilcli
 ===========
 
-Command Line Interface for Zilliqa blockchain
+CLI Wallet for Zilliqa blockchain.
 
 [![Version](https://img.shields.io/npm/v/zilcli.svg)](https://npmjs.org/package/zilcli)
 [![Downloads/week](https://img.shields.io/npm/dw/zilcli.svg)](https://npmjs.org/package/zilcli)
 [![License](https://img.shields.io/npm/l/zilcli.svg)](https://github.com/micovi/zilcli/blob/master/package.json)
 
+
+# Installation instructions
+If you have nodejs > v8.4.0 installed on your system you can install the CLI globally using
+
+```sh-session
+$ npm-install -g zilcli
+```
+Or you can install the packaged versions for multiple Operating Systems
+Go to [Releases page](https://github.com/micovi/zilcli/releases) and select your desired package.
+
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+# Table of contents
+*  [Installation instructions](#installation)
+*  [Usage](#usage)
+*  [Commands](#commands)
+
 <!-- tocstop -->
+
 # Usage
 <!-- usage -->
 ```sh-session
