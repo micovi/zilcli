@@ -1,0 +1,6 @@
+{
+  "extends": "oclif",
+  "rules": {
+    "semi": [2, "always"]
+  }
+}
