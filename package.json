@@ -1,8 +1,9 @@
 {
   "name": "zilcli",
+  "homepage": "https://zilcli.app",
   "description": "Command Line Interface for Zilliqa blockchain",
   "version": "1.0.0",
-  "author": "Ovidiu Miclea @micovi",
+  "author": "Ovidiu Miclea <micleaovidiul@gmail.com> @micovi",
   "bin": {
     "zilcli": "./bin/run"
   },
@@ -45,11 +46,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://github.com/micovi/zicli",
-  "keywords": [
-    "oclif"
-  ],
-  "license": "MIT",
+  "license": "GPL-3.0",
   "main": "src/index.js",
   "oclif": {
     "commands": "./src/commands",
