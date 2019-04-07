@@ -20,7 +20,6 @@ Go to [Releases page](https://github.com/micovi/zilcli/releases) and select your
 <!-- toc -->
 * [zilcli](#zilcli)
 * [Installation instructions](#installation-instructions)
-* [Table of contents](#table-of-contents)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->

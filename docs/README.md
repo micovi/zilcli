@@ -18,11 +18,10 @@ Or you can install the packaged versions for multiple Operating Systems
 Go to [Releases page](https://github.com/micovi/zilcli/releases) and select your desired package.
 
 <!-- toc -->
-# Table of contents
-*  [Installation instructions](#installation)
-*  [Usage](#usage)
-*  [Commands](#commands)
-
+* [zilcli](#zilcli)
+* [Installation instructions](#installation-instructions)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
@@ -32,7 +31,7 @@ $ npm install -g zilcli
 $ zilcli COMMAND
 running command...
 $ zilcli (-v|--version|version)
-zilcli/1.0.0-beta.3 darwin-x64 node-v9.4.0
+zilcli/1.0.0 darwin-x64 node-v9.4.0
 $ zilcli --help [COMMAND]
 USAGE
   $ zilcli COMMAND
@@ -50,7 +49,7 @@ USAGE
 * [`zilcli wallet:create [NAME]`](#zilcli-walletcreate-name)
 * [`zilcli wallet:details [NAME]`](#zilcli-walletdetails-name)
 * [`zilcli wallet:export [NAME]`](#zilcli-walletexport-name)
-* [`zilcli wallet:import [NAME] [FILE]`](#zilcli-walletimport-name-file)
+* [`zilcli wallet:import [NAME] [PRIVATEKEY]`](#zilcli-walletimport-name-privatekey)
 * [`zilcli wallet:list`](#zilcli-walletlist)
 * [`zilcli wallet:remove [NAME]`](#zilcli-walletremove-name)
 
@@ -79,7 +78,7 @@ EXAMPLES
   $ zilcli balance 23sdg235935dsg9325sd --by=address --testnet
 ```
 
-_See code: [src/commands/balance.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/balance.js)_
+_See code: [src/commands/balance.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/balance.js)_
 
 ## `zilcli help [COMMAND]`
 
@@ -111,7 +110,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/tx/index.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/tx/index.js)_
+_See code: [src/commands/tx/index.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/tx/index.js)_
 
 ## `zilcli tx:send`
 
@@ -131,7 +130,7 @@ OPTIONS
 DESCRIPTION
 ```
 
-_See code: [src/commands/tx/send.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/tx/send.js)_
+_See code: [src/commands/tx/send.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/tx/send.js)_
 
 ## `zilcli update [CHANNEL]`
 
@@ -160,7 +159,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/wallet/index.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/wallet/index.js)_
+_See code: [src/commands/wallet/index.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/wallet/index.js)_
 
 ## `zilcli wallet:create [NAME]`
 
@@ -181,7 +180,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/wallet/create.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/wallet/create.js)_
+_See code: [src/commands/wallet/create.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/wallet/create.js)_
 
 ## `zilcli wallet:details [NAME]`
 
@@ -201,7 +200,7 @@ DESCRIPTION
   Returned data: Name, ID, Address, Balance privateKey, publicKey, Network details
 ```
 
-_See code: [src/commands/wallet/details.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/wallet/details.js)_
+_See code: [src/commands/wallet/details.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/wallet/details.js)_
 
 ## `zilcli wallet:export [NAME]`
 
@@ -221,29 +220,29 @@ DESCRIPTION
   Export wallet account to keystore file encoded with passphrase.
 ```
 
-_See code: [src/commands/wallet/export.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/wallet/export.js)_
+_See code: [src/commands/wallet/export.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/wallet/export.js)_
 
-## `zilcli wallet:import [NAME] [FILE]`
+## `zilcli wallet:import [NAME] [PRIVATEKEY]`
 
 Import wallet
 
 ```
 USAGE
-  $ zilcli wallet:import [NAME] [FILE]
+  $ zilcli wallet:import [NAME] [PRIVATEKEY]
 
 ARGUMENTS
-  NAME  [default: default] Account name
-  FILE  File path or mnemonic phrase
+  NAME        [default: default] Account name
+  PRIVATEKEY  File path / Private Key
 
 OPTIONS
-  --type=keystore|mnemonic  [default: keystore] import type
+  --type=keystore|privateKey  [default: privateKey] import type
 
 DESCRIPTION
-  You can import wallet accounts from keystore file or mnemonic phrase
+  You can import wallet accounts from keystore file or by Private Key
   Keystore file must be located in $HOME/.zilcli/ directory.
 ```
 
-_See code: [src/commands/wallet/import.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/wallet/import.js)_
+_See code: [src/commands/wallet/import.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/wallet/import.js)_
 
 ## `zilcli wallet:list`
 
@@ -261,7 +260,7 @@ DESCRIPTION
   ID, Name, Address, Balance
 ```
 
-_See code: [src/commands/wallet/list.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/wallet/list.js)_
+_See code: [src/commands/wallet/list.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/wallet/list.js)_
 
 ## `zilcli wallet:remove [NAME]`
 
@@ -278,5 +277,5 @@ OPTIONS
   --loglevel=error|warn|info|debug
 ```
 
-_See code: [src/commands/wallet/remove.js](https://github.com/micovi/zilcli/blob/v1.0.0-beta.3/src/commands/wallet/remove.js)_
+_See code: [src/commands/wallet/remove.js](https://github.com/micovi/zilcli/blob/v1.0.0/src/commands/wallet/remove.js)_
 <!-- commandsstop -->
