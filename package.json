@@ -2,7 +2,7 @@
   "name": "zilcli",
   "homepage": "https://zilcli.app",
   "description": "Command Line Interface for Zilliqa blockchain",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Ovidiu Miclea <micleaovidiul@gmail.com> @micovi",
   "bin": {
     "zilcli": "./bin/run"
