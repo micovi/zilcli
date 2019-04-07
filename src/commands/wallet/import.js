@@ -4,6 +4,7 @@ const inquirer = require('inquirer');
 const slugify = require('slugify');
 
 const {Zilliqa} = require('@zilliqa-js/zilliqa');
+const {remove0x} = require('../../utils/blockchain');
 
 class WalletImportCommand extends ZilliqaBase {
   async run() {
@@ -12,7 +13,7 @@ class WalletImportCommand extends ZilliqaBase {
 
     let type = flags.type;
 
-    let typeMessage = type === 'keystore' ? 'file name' : 'mnemonic phrase';
+    let typeMessage = type === 'keystore' ? 'file name' : 'Private Key';
 
     let responses = await inquirer.prompt([
       {
@@ -34,9 +35,9 @@ class WalletImportCommand extends ZilliqaBase {
       },
       {
         name: 'file',
-        message: `Enter account ${typeMessage}`,
+        message: `Enter ${typeMessage}`,
         type: 'input',
-        default: args.file,
+        default: args.privateKey,
       },
       {
         name: 'passphrase',
@@ -70,12 +71,30 @@ class WalletImportCommand extends ZilliqaBase {
       } catch (error) {
         this.error(error);
       }
+    } else {
+      // Sanitize Private Key
+      let privateKey = remove0x(responses.file);
+
+      const address = await zilliqa.wallet.addByPrivateKey(privateKey);
+      const exportedWallet = await zilliqa.wallet.export(address, responses.passphrase, 'scrypt');
+
+      this.log('Successfully encrypted, now saving to wallet manager.');
+
+      // Save account to local wallet
+      await super.importAccount({
+        name: slugify(responses.name),
+        address: address,
+        network: responses.network,
+        data: JSON.parse(exportedWallet),
+        imported: true,
+        importType: responses.type,
+      });
     }
   }
 }
 
 WalletImportCommand.description = `Import wallet
-You can import wallet accounts from keystore file or mnemonic phrase
+You can import wallet accounts from keystore file or by Private Key
 Keystore file must be located in $HOME/.zilcli/ directory.
 `;
 
@@ -86,13 +105,17 @@ WalletImportCommand.args = [
     default: 'default',
   },
   {
-    name: 'file',
-    description: 'File path or mnemonic phrase',
+    name: 'privateKey',
+    description: 'File path / Private Key',
   },
 ];
 
 WalletImportCommand.flags = {
-  type: flags.string({description: 'import type', options: ['keystore', 'mnemonic'], default: 'keystore'}),
+  type: flags.string({
+    description: 'import type',
+    options: ['keystore', 'privateKey'],
+    default: 'privateKey',
+  }),
 };
 
 module.exports = WalletImportCommand;
