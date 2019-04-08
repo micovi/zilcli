@@ -7,6 +7,8 @@ CLI Wallet for Zilliqa blockchain.
 [![Downloads/week](https://img.shields.io/npm/dw/zilcli.svg)](https://npmjs.org/package/zilcli)
 [![License](https://img.shields.io/npm/l/zilcli.svg)](https://github.com/micovi/zilcli/blob/master/package.json)
 
+❗**NOTE**❗You can use zilci wallets only with **native ZIL tokens**. ERC20 ZIL tokens are not supported, please DO NOT send ERC20 ZIL to zilcli wallets. First you have to swap them on a Exchange. Read more about [How to swap ERC20 ZIL tokens](#).❗**NOTE**❗
+
 
 # Installation instructions
 If you have nodejs > v8.4.0 installed on your system you can install the CLI globally using
