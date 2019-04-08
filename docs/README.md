@@ -12,7 +12,7 @@ CLI Wallet for Zilliqa blockchain.
 If you have nodejs > v8.4.0 installed on your system you can install the CLI globally using
 
 ```sh-session
-$ npm-install -g zilcli
+$ npm install -g zilcli
 ```
 Or you can install the packaged versions for multiple Operating Systems
 Go to [Releases page](https://github.com/micovi/zilcli/releases) and select your desired package.
