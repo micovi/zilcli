@@ -14,8 +14,22 @@ If you have nodejs > v8.4.0 installed on your system you can install the CLI glo
 ```sh-session
 $ npm install -g zilcli
 ```
-Or you can install the packaged versions for multiple Operating Systems
-Go to [Releases page](https://github.com/micovi/zilcli/releases) and select your desired package.
+
+Or you can install the binary packaged versions for multiple Operating Systems
+
+### Binary auto-installers
+
+** Windows **
+[Windows x64: zilcli-v1.0.1-x64.exe](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1-x64.exe)
+[Windows x86: zilcli-v1.0.1-x86.exe](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1-x86.exe)
+
+** MacOS **
+[MacOS: zilcli-v1.0.1.pkg](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1.pkg)
+
+** Linux **
+Coming soon
+
+Check [Releases page](https://github.com/micovi/zilcli/releases/tag/v1.0.1) for multiple versions
 
 <!-- toc -->
 * [zilcli](#zilcli)
