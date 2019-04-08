@@ -16,8 +16,6 @@ Read more about [How to swap ERC20 ZIL tokens](#).
 
 ❗**NOTE**❗
 
-
-
 # Installation instructions
 If you have nodejs > v8.4.0 installed on your system you can install the CLI globally using
 
@@ -45,27 +43,111 @@ Coming soon
 
 Check [Releases page](https://github.com/micovi/zilcli/releases/tag/v1.0.1) for multiple versions
 
-<!-- toc -->
-* [zilcli](#zilcli)
-* [Installation instructions](#installation-instructions)
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
+# Usage examples
 
-# Usage
-<!-- usage -->
-```sh-session
-$ npm install -g zilcli
-$ zilcli COMMAND
-running command...
-$ zilcli (-v|--version|version)
-zilcli/1.0.1 darwin-x64 node-v9.4.0
-$ zilcli --help [COMMAND]
-USAGE
-  $ zilcli COMMAND
-...
+## How to create a new wallet?
+Make sure you have zilcli installed globally. Please check [Installation instructions](#installation-instructions) first.
+
+The simplest way to create a new wallet is by using the command: ```zilcli wallet:create``` with no flags or arguments and follow along the instructions on the screen:
+
+1. Execute wallet:create command with no arguments
+
+```bash
+$ zilcli wallet:create
 ```
-<!-- usagestop -->
+
+2. Enter your desired account name (eg: default-account)
+
+```bash
+Enter account name: default-account
+```
+
+3. Select the network where you want it to be created, mainnet or testnet
+
+```bash
+Select network: mainnet
+```
+
+4. Enter passphrase that will be used to access the wallet (Remember to note your passphrase and store it in a safe place)
+
+```bash
+Enter passphrase: *******
+```
+
+5. If creation is successfull you will se a success message
+
+```bash
+Wallet successfully generate with address: 4af0fa5e5790562e5937876af0bc89f3efa826ef.
+Trying to encrypt wallet with provided passphrase and scrypt method...
+Successfully encrypted, now saving to wallet manager.
+Account default-account successfully imported.
+```
+
+
+6. Next you can check your availalble wallets using wallet:list command
+
+```bash
+$ zilcli wallet:list
+
+Name            Address                                  Network 
+default-account 4af0fa5e5790562e5937876af0bc89f3efa826ef mainnet 
+```
+
+For more advanced usage check [`zilcli wallet:create`](#zilcli-walletcreate-name) command
+
+## How to import a wallet?
+
+Importing an existing wallet is as easy as creating a new one. You can import a wallet by it's private key using the interactive ```zilcli wallet:import``` command:
+
+1. Start the interactive import tool using zilcli wallet:import
+
+```bash
+$ zilcli wallet:import
+```
+
+2. Enter your desired account name (eg: default-account)
+
+```bash
+Enter account name: default-account
+```
+
+3. Select the network where you want it to be created, mainnet or testnet
+
+```bash
+Select network: mainnet
+```
+
+4. Enter your private key you wish to import
+
+```bash
+Enter Private Key: *******
+```
+
+5. Enter passphrase that will be used to access the wallet (Remember to note your passphrase and store it in a safe place)
+
+```bash
+Enter passphrase ******
+```
+
+6. If creation is successfull you will se a success message
+
+```bash
+Trying to import wallet...
+Successfully encrypted, now saving to wallet manager.
+Account default successfully imported.
+```
+
+7. Next you can check your availalble wallets using wallet:list command
+
+```bash
+$ zilcli wallet:list
+
+Name            Address                                  Network 
+default-account 4af0fa5e5790562e5937876af0bc89f3efa826ef mainnet 
+```
+
+For more advanced usage check [`zilcli wallet:import`]((#zilcli-walletimport-name-privatekey)) command
+
 # Commands
 <!-- commands -->
 * [`zilcli balance [HASH]`](#zilcli-balance-hash)
