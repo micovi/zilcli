@@ -148,6 +148,65 @@ default-account 4af0fa5e5790562e5937876af0bc89f3efa826ef mainnet
 
 For more advanced usage check [`zilcli wallet:import`]((#zilcli-walletimport-name-privatekey)) command
 
+## How to send a transaction?
+
+You can send a transaction using the interactive UI zilcli provides:
+
+1. Execute tx:send command with no arguments
+
+```bash
+$ zilcli tx:send
+```
+
+2. Select the account you want to use for the transaction
+
+```bash
+Select account used default-account
+```
+
+3. Enter your passphrase used to decode the account data and sign the transaction.
+
+```bash
+Enter passphrase ****
+Selected network mainnet
+```
+
+4. Enter the destination address (where you want to send the ZIL tokens)
+
+```bash
+Enter destination address F69Feaa38828d7F8Cf1e82F28e42Bc465E3f082a
+```
+
+5. Enter amount you wish to transfer, **in ZIL**
+
+```bash
+Enter amount (in ZIL) 0.2
+```
+
+6. Confirm your transaction by typing yes or no.
+
+```bash
+Confirm that you wish to send 0.2 ZIL to F69Feaa38828d7F8Cf1e82F28e42Bc465E3f082a: Yes
+Mininum gas price on the network 1000 Li
+```
+
+7. Enter gas amount, **in Li**
+
+```bash
+Enter gas amount (in Li) 1000
+```
+
+8. You will have to wait for the transaction to complete (usually takes ~2 min)
+
+```bash
+Generating and sending transaction... 
+Transaction successfully sent
+https://viewblock.io/zilliqa/tx/d9ec701c67f03877ae4069025960d6fc6221f72b7ad6b07e756b9e75252ae22e
+{ cumulative_gas: 1, epoch_num: '66629', success: true }
+```
+
+For more advanced usage check [`zilcli tx:send`](#zilcli-txsend) command
+
 # Commands
 <!-- commands -->
 * [`zilcli balance [HASH]`](#zilcli-balance-hash)
