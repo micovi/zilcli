@@ -19,14 +19,18 @@ Or you can install the binary packaged versions for multiple Operating Systems
 
 ### Binary auto-installers
 
-** Windows **
+**Windows**
+
 [Windows x64: zilcli-v1.0.1-x64.exe](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1-x64.exe)
+
 [Windows x86: zilcli-v1.0.1-x86.exe](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1-x86.exe)
 
-** MacOS **
+**MacOS**
+
 [MacOS: zilcli-v1.0.1.pkg](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1.pkg)
 
-** Linux **
+**Linux**
+
 Coming soon
 
 Check [Releases page](https://github.com/micovi/zilcli/releases/tag/v1.0.1) for multiple versions
