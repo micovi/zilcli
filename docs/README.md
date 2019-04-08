@@ -297,3 +297,16 @@ OPTIONS
 
 _See code: [src/commands/wallet/remove.js](https://github.com/micovi/zilcli/blob/v1.0.1/src/commands/wallet/remove.js)_
 <!-- commandsstop -->
+
+## Feedback and contributing
+
+We would love to hear some feedback from you, if you find any bugs or you have any feature requests you can open an Issue on github.
+
+You can contribute by opening any PR on github.
+
+## Support us
+
+If you like and use our CLI tool, you can buy us a beer by donating ZIL to the following address:
+```0xfb2ef2314075179fb079f9cdac9eaa6f07aebcfb```
+
+Thank you! 🍻
