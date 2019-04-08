@@ -9,7 +9,7 @@ CLI Wallet for Zilliqa blockchain.
 
 ❗**NOTE**❗
 
-You can use zilci wallets only with **native ZIL tokens**. ERC20 ZIL tokens are not supported, please DO NOT send ERC20 ZIL to zilcli wallets. First you have to swap them on a Exchange. 
+You can use zilcli wallets only with **native ZIL tokens**. ERC20 ZIL tokens are not supported, please DO NOT send ERC20 ZIL to zilcli wallets. First you have to swap them on a Exchange. 
 
 Read more about [How to swap ERC20 ZIL tokens](#).
 
