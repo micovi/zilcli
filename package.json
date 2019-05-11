@@ -20,7 +20,7 @@
     "@zilliqa-js/zilliqa": "^0.5.2",
     "chalk": "^2.4.2",
     "cli-ux": "^5.2.1",
-    "fs-extra": "^7.0.1",
+    "fs-extra": "^8.0.0",
     "inquirer": "^6.2.2",
     "makensis": "^0.17.0",
     "path": "^0.12.7",
