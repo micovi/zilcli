@@ -15,7 +15,7 @@
     "@oclif/plugin-plugins": "^1.7.8",
     "@oclif/plugin-update": "^1.3.9",
     "@oclif/plugin-warn-if-update-available": "^1.7.0",
-    "@zilliqa-js/crypto": "^0.5.0",
+    "@zilliqa-js/crypto": "^0.6.0",
     "@zilliqa-js/util": "^0.5.0",
     "@zilliqa-js/zilliqa": "^0.5.2",
     "chalk": "^2.4.2",
