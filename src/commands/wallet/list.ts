@@ -12,7 +12,7 @@ ID, Name, Address, Balance`;
   async run() {
     const base = new Zilcli.Base(this.config.home);
 
-    const accounts: Zilcli.Account[] = await base.getAccounts();
+    const accounts = base.accounts;
 
     if (accounts.length === 0) {
       this.warn('You have no wallet accounts defined.');
@@ -27,16 +27,19 @@ ID, Name, Address, Balance`;
     cli.table(accounts, {
       name: {
         minWidth: 10,
-        get: (item: Zilcli.Account) => chalk.yellow(item.name),
+        get: item => chalk.yellow(item.name),
       },
       address: {
-        get: (item: Zilcli.Account) => chalk.bold.green(toBech32Address(item.address)),
+        get: (item) => chalk.bold.green(toBech32Address(item.address)),
+      },
+      old_address: {
+        get: item => item.address
       },
       network: {
-        get: (item: Zilcli.Account) => item.network,
+        get: (item) => item.network,
       },
       id: {
-        get: (item: Zilcli.Account) => item.data.id,
+        get: (item) => item.data.id,
         extended: true,
       },
     });

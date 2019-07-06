@@ -11,12 +11,12 @@ import { toBech32Address } from "@zilliqa-js/crypto";
 
 
 class WalletImportCommand extends Command {
-  description = `Import wallet
+  static description = `Import wallet
 You can import wallet accounts from keystore file or by Private Key
 Keystore file must be located in $HOME/.zilcli/ directory.
 `;
 
-  args = [
+  static args = [
     {
       name: 'name',
       description: 'Account name',
@@ -28,7 +28,7 @@ Keystore file must be located in $HOME/.zilcli/ directory.
     },
   ];
 
-  flags = {
+  static flags = {
     type: flags.string({
       description: 'import type',
       options: ['keystore', 'privateKey'],
@@ -87,7 +87,7 @@ Keystore file must be located in $HOME/.zilcli/ directory.
           importType: type,
         });
       } catch (error) {
-        this.error(error);
+        console.error(error);
       }
     } else {
       // Sanitize Private Key
@@ -98,15 +98,20 @@ Keystore file must be located in $HOME/.zilcli/ directory.
 
       this.log('Successfully encrypted, now saving to wallet manager.');
 
-      // Save account to local wallZFet
-      await base.importAccount({
-        name: slugify(responses.name),
-        address: address,
-        network: base.apiAddress,
-        data: JSON.parse(exportedWallet),
-        imported: true,
-        importType: type,
-      });
+      try {
+
+        await base.importAccount({
+          name: slugify(responses.name),
+          address: address,
+          network: base.apiAddress,
+          data: JSON.parse(exportedWallet),
+          imported: true,
+          importType: type,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+
     }
   }
 }

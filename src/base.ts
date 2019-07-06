@@ -1,29 +1,40 @@
 import * as fs from "fs-extra";
 import * as path from "path";
 import chalk from "chalk";
+import { validation } from "@zilliqa-js/util";
+import { toBech32Address, fromBech32Address } from '@zilliqa-js/crypto';
 
 export interface Account {
   name: string;
   address: string;
   network: string;
-  data: {
-    id: string
-  },
+  data: any,
   imported?: boolean,
   importType?: string
 }
 
+export interface Contact {
+  name: string;
+  address: string;
+}
 
 export class Base {
   homePath: string;
   apiAddress: string = 'https://api.zilliqa.com';
+  nodeVersion: number = 65537;
+  contacts: Contact[] = [];
+  accounts: Account[] = [];
 
   constructor(homePath: string) {
     this.homePath = homePath;
+
+    this.accounts = this.readJsonFile('accounts.json') || [];
+
+    this.contacts = this.readJsonFile('contacts.json') || [];
   }
 
-
-  remove0x = (string: string): string => {
+  /* TODO: MOVE THIS TO UTILS NAMESPACE */
+  remove0x(string: string): string {
     return string.replace('0x', '');
   };
 
@@ -31,50 +42,46 @@ export class Base {
     return '0x' + string;
   };
 
-  async readJsonFile(fileName: string) {
-    try {
-      let data = await fs.readJSON(path.join(this.homePath, '.zilcli', fileName), {
-        throws: false,
-      });
+  validateAddress(string: string) {
+    let contact = this.contacts.find((item: Contact) => item.name === string);
 
-      return data;
-    } catch (error) {
-      throw error;
+    if (contact !== undefined) {
+      if (validation.isAddress(fromBech32Address(contact.address))) {
+        return contact.address;
+      } else {
+        return false;
+      }
+    } else {
+      return validation.isAddress(fromBech32Address(string));
     }
   }
 
-  async writeJsonFile(fileName: string, contents: object) {
-    try {
-      let data = await fs.writeJSON(path.join(this.homePath, '.zilcli', fileName), contents);
+  isNumeric = (n: any) => {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  };
 
-      return data;
-    } catch (error) {
-      throw error;
-    }
+
+  readJsonFile(fileName: string) {
+    return fs.readJSONSync(path.join(this.homePath, '.zilcli', fileName), {
+      throws: false,
+    });
   }
 
-  async getAccounts(): Promise<Account[]> {
+  writeJsonFile(fileName: string, contents: object) {
+    return fs.writeJSONSync(path.join(this.homePath, '.zilcli', fileName), contents);
+  }
 
-    try {
-      // Ensure the accounts.json file exists
-      await fs.ensureFile(path.join(this.homePath, '/.zilcli/accounts.json'));
-    } catch (error) {
-      throw error;
-    }
-
+  getAccounts(): Account[] {
     // Read accounts from file
-    let accounts = await this.readJsonFile('accounts.json');
+    let accounts = this.readJsonFile('accounts.json') || [];
 
-    if (accounts === null) accounts = [];
-
+    this.accounts = accounts;
     return accounts;
-
   }
 
-  async getAccountByName(name: string): Promise<Account> {
-    const accounts = await this.getAccounts();
+  getAccountByName(name: string): Account {
 
-    let account: Account | undefined = accounts.find((item: Account) => item.name === name);
+    let account: Account | undefined = this.accounts.find((item: Account) => item.name === name);
 
     if (account === undefined) {
       throw chalk.bold.red(`Account called ${name} does not exist.`);
@@ -85,18 +92,17 @@ export class Base {
 
   async removeAccount(name: string) {
     try {
-      const accounts = await this.getAccounts();
-      let accountIndex: number | undefined = accounts.findIndex((item: Account) => item.name === name);
+      let accountIndex: number | undefined = this.accounts.findIndex((item: Account) => item.name === name);
 
-      if (accountIndex === undefined) {
+      if (accountIndex === -1) {
         throw chalk.bold.red(`Account called ${name} does not exist.`);
       }
 
-      accounts.splice(accountIndex, 1);
+      this.accounts.splice(accountIndex, 1);
 
       try {
         // Rewrite accounts.json file
-        await fs.writeJSON(path.join(this.homePath, '/.zilcli/accounts.json'), accounts);
+        await fs.writeJSON(path.join(this.homePath, '/.zilcli/accounts.json'), this.accounts);
 
         console.log(chalk.green.bold(`Account ${name} successfully removed.`));
       } catch (error) {
@@ -108,7 +114,7 @@ export class Base {
   }
 
   async importAccount(account: Account) {
-    const accounts = await this.getAccounts();
+    const accounts = this.accounts;
 
     // check if already imported
     let found = accounts.find((item: Account) => item.address === account.address);
@@ -120,6 +126,7 @@ export class Base {
     }
 
     accounts.push(account);
+    this.accounts = accounts; // TODO: use only this.accounts
 
     try {
       // Rewrite accounts.json file
@@ -142,5 +149,73 @@ export class Base {
       throw error;
     }
   }
+
+  getContacts(): Contact[] {
+    // Read contacts from file
+    let contacts = this.readJsonFile('contacts.json') || [];
+
+    this.contacts = contacts;
+    return contacts;
+  }
+
+  getContactByName(name: string) {
+    let contact: Contact | undefined = this.contacts.find((item: Contact) => item.name === name);
+
+    if (contact === undefined) {
+      throw chalk.bold.red(`Contact with name ${name} does not exist in AddressBook.`);
+    }
+
+    return contact;
+  }
+
+  getContactByAddress(address: string) {
+    let contact: Contact | undefined = this.contacts.find((item: Contact) => item.address === address);
+
+    if (contact === undefined)
+      return false;
+    else
+      return contact;
+  }
+
+  addContact(contact: Contact) {
+    // check if already imported
+    let found = this.contacts.find((item: Contact) => (item.address === contact.address || item.name === contact.name));
+
+    if (found !== undefined) {
+      throw `Account with the name ${chalk.bold.yellow(found.name)} already exists. (${chalk.bold.green(
+        found.address
+      )})`;
+    }
+
+    this.contacts.push(contact);
+
+    this.writeJsonFile('contacts.json', this.contacts);
+
+    console.log(chalk.green.bold(`Contact ${contact.name} successfully saved.`));
+  }
+
+  async removeContact(name: string) {
+    try {
+      let contactIndex: number | undefined = this.contacts.findIndex((item: Contact) => item.name === name);
+
+      if (contactIndex === -1) {
+        throw chalk.bold.red(`Contact ${name} does not exist.`);
+      }
+
+      this.contacts.splice(contactIndex, 1);
+
+      try {
+        // Rewrite contacts.json file
+        await fs.writeJSON(path.join(this.homePath, '/.zilcli/contacts.json'), this.contacts);
+
+        console.log(chalk.green.bold(`Contact ${name} successfully removed.`));
+      } catch (error) {
+        throw error;
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
 
