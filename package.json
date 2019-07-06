@@ -1,0 +1,131 @@
+{
+  "name": "zilcli",
+  "description": "Command Line Interface for Zilliqa Blockchain",
+  "version": "2.0.0",
+  "author": "Ovidiu Miclea <micleaovidiul@gmail.com> @micovi",
+  "bin": {
+    "zilcli": "./bin/run"
+  },
+  "bugs": "https://github.com/micovi/zilcli/issues",
+  "dependencies": {
+    "@oclif/command": "^1.5.15",
+    "@oclif/config": "^1.13.0",
+    "@oclif/plugin-help": "^2.2.0",
+    "@oclif/plugin-update": "^1.3.9",
+    "@oclif/plugin-warn-if-update-available": "^1.7.0",
+    "@types/fs-extra": "^8.0.0",
+    "@types/inquirer": "^6.0.3",
+    "@zilliqa-js/crypto": "^0.7.2",
+    "@zilliqa-js/zilliqa": "^0.7.2",
+    "chalk": "^2.4.2",
+    "fs-extra": "^8.1.0",
+    "inquirer": "^6.4.1",
+    "namicorn": "^0.2.14",
+    "slugify": "^1.3.4",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.22.0",
+    "@oclif/test": "^1.2.4",
+    "@oclif/tslint": "^3.1.1",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^10.14.10",
+    "chai": "^4.2.0",
+    "globby": "^8.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.2"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/micovi/zilcli",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "zilcli",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-update",
+      "@oclif/plugin-warn-if-update-available"
+    ],
+    "topics": {
+      "tx": {
+        "description": "Transactions Facade | commands: send, gasprice"
+      },
+      "tx:send": {
+        "description": "create and send a transaction"
+      },
+      "tx:gasprice": {
+        "description": "shows current mininum gasprice"
+      },
+      "wallet": {
+        "description": "Wallet Facade | commands: create, list, import, export, remove"
+      },
+      "wallet:create": {
+        "description": "Create new wallet using passphrase"
+      },
+      "wallet:list": {
+        "description": "List all Wallet accounts"
+      },
+      "wallet:details": {
+        "description": "Print details about Wallet"
+      },
+      "wallet:import": {
+        "description": "Import wallet from keystore, private key or mnemonic"
+      },
+      "wallet:export": {
+        "description": "Export wallet"
+      },
+      "wallet:remove": {
+        "description": "Remove existing wallet from Zilcli Manager"
+      },
+      "contacts": {
+        "description": "Local AddressBook Facade | commands: list, add, remove"
+      },
+      "contacts:list": {
+        "description": "List all AddressBook contacts"
+      },
+      "contacts:add": {
+        "description": "Create a new entry in AddressBook"
+      },
+      "contacts:remove": {
+        "description": "Remove an entry from AddressBook"
+      }
+    },
+    "update": {
+      "s3": {
+        "bucket": "zilliqa-cli-test"
+      }
+    },
+    "macos": {
+      "identifier": "com.zilliqa.cli"
+    },
+    "warn-if-update-available": {
+      "timeoutInDays": 2,
+      "message": "<%= config.name %> update available from <%= chalk.greenBright(config.version) %> to <%= chalk.greenBright(latest) %>."
+    }
+  },
+  "repository": "micovi/zilcli",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
