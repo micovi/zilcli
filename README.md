@@ -29,28 +29,69 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`zilcli hello [FILE]`](#zilcli-hello-file)
+* [`zilcli contacts:add [ADDRESS] [NAME]`](#zilcli-contactsadd-address-name)
+* [`zilcli contacts:list`](#zilcli-contactslist)
+* [`zilcli contacts:remove [NAME]`](#zilcli-contactsremove-name)
 * [`zilcli help [COMMAND]`](#zilcli-help-command)
+* [`zilcli tx:send`](#zilcli-txsend)
+* [`zilcli update [CHANNEL]`](#zilcli-update-channel)
+* [`zilcli wallet:create`](#zilcli-walletcreate)
+* [`zilcli wallet:details [NAME]`](#zilcli-walletdetails-name)
+* [`zilcli wallet:export [NAME]`](#zilcli-walletexport-name)
+* [`zilcli wallet:import [NAME] [PRIVATEKEY]`](#zilcli-walletimport-name-privatekey)
+* [`zilcli wallet:list`](#zilcli-walletlist)
+* [`zilcli wallet:remove [NAME]`](#zilcli-walletremove-name)
 
-## `zilcli hello [FILE]`
+## `zilcli contacts:add [ADDRESS] [NAME]`
 
-describe the command here
+Describe the command here
 
 ```
 USAGE
-  $ zilcli hello [FILE]
+  $ zilcli contacts:add [ADDRESS] [NAME]
 
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+ARGUMENTS
+  ADDRESS  Contact address
+  NAME     Contact name
 
-EXAMPLE
-  $ zilcli hello
-  hello world from ./src/hello.ts!
+DESCRIPTION
+  ...
+  Extra documentation goes here
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/hello.ts)_
+_See code: [src/commands/contacts/add.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/contacts/add.ts)_
+
+## `zilcli contacts:list`
+
+Lists all contacts from Address Book
+
+```
+USAGE
+  $ zilcli contacts:list
+
+DESCRIPTION
+  Prints a table with all the saved accounts.
+  Name, Address, Old Address format
+```
+
+_See code: [src/commands/contacts/list.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/contacts/list.ts)_
+
+## `zilcli contacts:remove [NAME]`
+
+Remove existing Contact from Address Book
+
+```
+USAGE
+  $ zilcli contacts:remove [NAME]
+
+ARGUMENTS
+  NAME  contact name you want to remove
+
+DESCRIPTION
+  ...
+```
+
+_See code: [src/commands/contacts/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/contacts/remove.ts)_
 
 ## `zilcli help [COMMAND]`
 
@@ -68,4 +109,132 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
+
+## `zilcli tx:send`
+
+Create and send a transaction
+
+```
+USAGE
+  $ zilcli tx:send
+
+OPTIONS
+  -a, --amount=amount  amount in ZIL
+  -f, --from=from      account name or privateKey
+  -g, --gas=gas        gas to use (defined in Li)
+  -p, --usePrivateKey  Private Key
+  -t, --to=to          destination address
+
+DESCRIPTION
+```
+
+_See code: [src/commands/tx/send.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/tx/send.ts)_
+
+## `zilcli update [CHANNEL]`
+
+update the zilcli CLI
+
+```
+USAGE
+  $ zilcli update [CHANNEL]
+```
+
+_See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.9/src/commands/update.ts)_
+
+## `zilcli wallet:create`
+
+```
+USAGE
+  $ zilcli wallet:create
+```
+
+_See code: [src/commands/wallet/create.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/wallet/create.ts)_
+
+## `zilcli wallet:details [NAME]`
+
+Prints out details about Wallet
+
+```
+USAGE
+  $ zilcli wallet:details [NAME]
+
+ARGUMENTS
+  NAME  Wallet name to get details for
+
+DESCRIPTION
+  Returned data: Name, ID, Address, Balance privateKey, publicKey, Network details
+```
+
+_See code: [src/commands/wallet/details.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/wallet/details.ts)_
+
+## `zilcli wallet:export [NAME]`
+
+Export account to keystore file
+
+```
+USAGE
+  $ zilcli wallet:export [NAME]
+
+ARGUMENTS
+  NAME  account name you want to export
+
+DESCRIPTION
+  Export wallet account to keystore file encoded with passphrase.
+```
+
+_See code: [src/commands/wallet/export.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/wallet/export.ts)_
+
+## `zilcli wallet:import [NAME] [PRIVATEKEY]`
+
+Import wallet
+
+```
+USAGE
+  $ zilcli wallet:import [NAME] [PRIVATEKEY]
+
+ARGUMENTS
+  NAME        [default: default] Account name
+  PRIVATEKEY  File path / Private Key / Mnemonic phrase
+
+OPTIONS
+  --type=keystore|privateKey  [default: privateKey] import type
+
+DESCRIPTION
+  You can import wallet accounts from keystore file or by Private Key
+  Keystore file must be located in $HOME/.zilcli/ directory.
+```
+
+_See code: [src/commands/wallet/import.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/wallet/import.ts)_
+
+## `zilcli wallet:list`
+
+Lists all configured Zilliqa Wallets
+
+```
+USAGE
+  $ zilcli wallet:list
+
+DESCRIPTION
+  Prints a table with all the configured Wallet Accounts.
+  ID, Name, Address, Balance
+```
+
+_See code: [src/commands/wallet/list.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/wallet/list.ts)_
+
+## `zilcli wallet:remove [NAME]`
+
+Remove existing wallet from Zilcli Manager
+
+```
+USAGE
+  $ zilcli wallet:remove [NAME]
+
+ARGUMENTS
+  NAME  account name you want to remove
+
+DESCRIPTION
+  ...
+```
+
+_See code: [src/commands/wallet/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/wallet/remove.ts)_
 <!-- commandsstop -->
