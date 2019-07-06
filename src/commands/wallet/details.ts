@@ -52,7 +52,7 @@ class WalletDetailsCommand extends Command {
       const accountDetails = await zilliqa.wallet.accounts[address];
       const balanceData = await zilliqa.blockchain.getBalance(address);
 
-      let balance: number = 0;
+      let balance: number | string = 0;
 
       if (balanceData.result !== undefined) {
         // Convert balance to Zil

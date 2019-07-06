@@ -8,6 +8,7 @@ import chalk from 'chalk';
 const { cli } = require('cli-ux');
 
 import { Zilliqa } from '@zilliqa-js/zilliqa';
+/* tslint:disable-next-line */
 import { BN, units, Long } from '@zilliqa-js/util';
 import { Transaction } from '@zilliqa-js/account';
 
@@ -136,7 +137,8 @@ class TxSendCommand extends Command {
 
       // Calculate gas prices
       const minGasPrice = await zilliqa.blockchain.getMinimumGasPrice();
-      const liGasPrice = units.fromQa(new BN(minGasPrice.result), units.Units.Li);
+      const gasresult = minGasPrice.result || 0;
+      const liGasPrice = units.fromQa(new BN(gasresult), units.Units.Li);
       this.log(`Mininum gas price on the network ${liGasPrice} Li`);
 
       // Calculate needed amount
@@ -179,7 +181,7 @@ class TxSendCommand extends Command {
 
       await cli.url('[Open Explorer] ', `https://viewblock.io/zilliqa/tx/${sendTx.id}`);
 
-      this.log(sendTx.receipt);
+      console.log(sendTx);
     } catch (error) {
       this.error(error);
     }

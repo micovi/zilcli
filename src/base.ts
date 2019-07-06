@@ -1,6 +1,7 @@
 import * as fs from "fs-extra";
 import * as path from "path";
 import chalk from "chalk";
+/* tslint:disable-next-line */
 import { validation } from "@zilliqa-js/util";
 import { toBech32Address, fromBech32Address } from '@zilliqa-js/crypto';
 
