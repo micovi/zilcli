@@ -33,7 +33,6 @@ class TxSendCommand extends Command {
     let from: string = flags.from || '';
     let privateKey: string = '';
     let passphrase: string = '';
-    let account: Zilcli.Account;
 
     // Ask for private key if needed or set the account from accounts file
     if (usePrivateKey === true) {

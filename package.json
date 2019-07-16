@@ -67,6 +67,9 @@
       "tx": {
         "description": "Transactions Facade | commands: send, gasprice"
       },
+      "tx:recent": {
+        "description": "Retrieve a list of recent 100 transactions."
+      },
       "tx:send": {
         "description": "create and send a transaction"
       },
@@ -105,6 +108,15 @@
       },
       "contacts:remove": {
         "description": "Remove an entry from AddressBook"
+      },
+      "blockchain": {
+        "description": "General Blockchain Facade"
+      },
+      "blockchain:info": {
+        "description": "Retrieves generally blockchain information"
+      },
+      "blockchain:txblock": {
+        "description": "Retrieves a TxBlock data."
       }
     },
     "update": {
