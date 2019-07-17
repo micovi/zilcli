@@ -67,6 +67,9 @@
       "tx": {
         "description": "Transactions Facade | commands: send, gasprice"
       },
+      "tx:details": {
+        "description": ""
+      },
       "tx:recent": {
         "description": "Retrieve a list of recent 100 transactions."
       },

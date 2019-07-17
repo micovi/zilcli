@@ -35,7 +35,8 @@ USAGE
 * [`zilcli contacts:list`](#zilcli-contactslist)
 * [`zilcli contacts:remove [NAME]`](#zilcli-contactsremove-name)
 * [`zilcli help [COMMAND]`](#zilcli-help-command)
-* [`zilcli tx:recent [BLOCK_NUMBER]`](#zilcli-txrecent-block_number)
+* [`zilcli tx:details [TXHASH]`](#zilcli-txdetails-txhash)
+* [`zilcli tx:recent [LIMIT]`](#zilcli-txrecent-limit)
 * [`zilcli tx:send`](#zilcli-txsend)
 * [`zilcli update [CHANNEL]`](#zilcli-update-channel)
 * [`zilcli wallet:create`](#zilcli-walletcreate)
@@ -146,16 +147,33 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
 
-## `zilcli tx:recent [BLOCK_NUMBER]`
+## `zilcli tx:details [TXHASH]`
+
+Returns the details of a specified Transaction.
+
+```
+USAGE
+  $ zilcli tx:details [TXHASH]
+
+ARGUMENTS
+  TXHASH  Transaction hash you want to get details for
+
+DESCRIPTION
+  ...
+```
+
+_See code: [src/commands/tx/details.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/tx/details.ts)_
+
+## `zilcli tx:recent [LIMIT]`
 
 Retrieve a list with recent 100 transactions
 
 ```
 USAGE
-  $ zilcli tx:recent [BLOCK_NUMBER]
+  $ zilcli tx:recent [LIMIT]
 
 ARGUMENTS
-  BLOCK_NUMBER  Block number
+  LIMIT  Limit
 
 DESCRIPTION
   ...

@@ -370,8 +370,8 @@
         "signature": "4ff5ee0b4a12d86bc69ad450fa5e47dc3f7f168ff82ab2836c81eb302429ec2d"
       },
       "/users/ovi1/documents/projects/zilclinew/src/base.ts": {
-        "version": "2616b05584ab21a07d4ce7bedd4f8ff85e62d2e8a60a2bd9976a87875910e903",
-        "signature": "7311f2a6cafcd4bda9ed8fde0322055d6840d2d435e357428983fdd01e24f1cc"
+        "version": "46f16d7f3f5d7627cf557bc9fc6ba84d5f600bbcfeaa252f9b2aea0c1d26efb1",
+        "signature": "f1939e45420dfe3ea04bdd0c11ef6a6825dce5dc951a1f200743460b17a8b0ac"
       },
       "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/parser/lib/args.d.ts": {
         "version": "b8fac2a2a066d140f34e5e0c698440f1f8c8a94eea2c95d156ce821ed53336e2",
@@ -929,8 +929,12 @@
         "version": "c6e74820c82082e9289a0e7432b888b4c2db143119a9a8120e73d36a02fb84f2",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
       },
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/details.ts": {
+        "version": "3067141e98c1ac966afae4835df807e7ff4cb2085a80c62c0fa38c5f22097c4a",
+        "signature": "7a3af56a3539e81d0098cff9811a2614598e5980762ace3617943e4d83077ea7"
+      },
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/recent.ts": {
-        "version": "d232b48e2772592e90fb39b877dfd8fb9d87bca52693006ef0fdb8ce29927d3a",
+        "version": "0a827430da8bd59c8829c5c7d2408dde7d01db6194fd8eb2834498d932e79744",
         "signature": "7a3af56a3539e81d0098cff9811a2614598e5980762ace3617943e4d83077ea7"
       },
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/send.ts": {
@@ -2454,10 +2458,19 @@
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/details.ts": [
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/command/lib/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/src/base.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/zilliqa/dist/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/util/dist/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/recent.ts": [
         "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/command/lib/index.d.ts",
         "/users/ovi1/documents/projects/zilclinew/src/base.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/zilliqa/dist/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/util/dist/index.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -4134,6 +4147,9 @@
       "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/list.ts": [
         "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/command/lib/index.d.ts"
       ],
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/recent.ts": [
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/command/lib/index.d.ts"
+      ],
       "/users/ovi1/documents/projects/zilclinew/node_modules/slugify/index.d.ts": [
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
@@ -4395,7 +4411,7 @@
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/recent.ts": [
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/details.ts": [
         "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/command/lib/index.d.ts"
       ]
     },
@@ -4492,7 +4508,6 @@
       "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/crypto/dist/random.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/crypto/dist/bech32.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/crypto/dist/index.d.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/base.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/parser/lib/args.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/parser/lib/alphabet.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/parser/lib/flags.d.ts",
@@ -4545,8 +4560,6 @@
       "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/blockchain/dist/network.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/blockchain/dist/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/zilliqa/dist/index.d.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/blockchain/info.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/blockchain/txblock.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/through/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/rxjs/internal/subscription.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/rxjs/internal/types.d.ts",
@@ -4613,7 +4626,6 @@
       "/users/ovi1/documents/projects/zilclinew/node_modules/rxjs/internal/config.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/rxjs/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/inquirer/index.d.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/add.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/errors/lib/handle.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/errors/lib/errors/cli.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/errors/lib/errors/exit.d.ts",
@@ -4630,16 +4642,7 @@
       "/users/ovi1/documents/projects/zilclinew/node_modules/cli-ux/lib/styled/tree.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/cli-ux/lib/open.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/cli-ux/lib/index.d.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/list.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/remove.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/send.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/slugify/index.d.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/create.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/details.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/export.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/import.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/list.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/remove.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/bip39/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/chai/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/hdkey/index.d.ts",
@@ -4660,7 +4663,21 @@
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/nock/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/semver/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/sinon/ts3.1/index.d.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/recent.ts"
+      "/users/ovi1/documents/projects/zilclinew/src/base.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/blockchain/info.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/blockchain/txblock.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/add.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/list.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/remove.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/details.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/recent.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/send.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/create.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/details.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/export.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/import.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/list.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/wallet/remove.ts"
     ]
   },
   "version": "3.5.2"
