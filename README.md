@@ -34,6 +34,7 @@ USAGE
 * [`zilcli contacts:add [ADDRESS] [NAME]`](#zilcli-contactsadd-address-name)
 * [`zilcli contacts:list`](#zilcli-contactslist)
 * [`zilcli contacts:remove [NAME]`](#zilcli-contactsremove-name)
+* [`zilcli domains:resolve [DOMAIN]`](#zilcli-domainsresolve-domain)
 * [`zilcli help [COMMAND]`](#zilcli-help-command)
 * [`zilcli tx:details [TXHASH]`](#zilcli-txdetails-txhash)
 * [`zilcli tx:recent [LIMIT]`](#zilcli-txrecent-limit)
@@ -129,6 +130,23 @@ DESCRIPTION
 ```
 
 _See code: [src/commands/contacts/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/contacts/remove.ts)_
+
+## `zilcli domains:resolve [DOMAIN]`
+
+Returns the details of a specified domain name.
+
+```
+USAGE
+  $ zilcli domains:resolve [DOMAIN]
+
+ARGUMENTS
+  DOMAIN  Domain name eg: zilcli.zil
+
+DESCRIPTION
+  ...
+```
+
+_See code: [src/commands/domains/resolve.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/domains/resolve.ts)_
 
 ## `zilcli help [COMMAND]`
 
