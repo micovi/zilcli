@@ -3,6 +3,7 @@ import { Command } from "@oclif/command";
 import * as Zilcli from "../../base";
 import { Zilliqa } from '@zilliqa-js/zilliqa';
 import { BN, units, Long } from '@zilliqa-js/util';
+//import { cli } from "cli-ux";
 
 class TxRecentCommand extends Command {
   static description = `Retrieve a list with recent 100 transactions
@@ -33,10 +34,10 @@ class TxRecentCommand extends Command {
         let txdetails = txs.result.TxnHashes.map(async (txhash: string) => {
           let data = await zilliqa.blockchain.getTransaction(txhash);
 
-          let amount = new BN(data.txParams.amount).toString();
+          let amount = new BN(units.fromQa(data.txParams.amount, units.Units.Zil)).toString();
 
           return {
-            hash: null,
+            hash: txhash,
             from: data.senderAddress,
             to: data.txParams.toAddr,
             amount: amount,
@@ -47,7 +48,7 @@ class TxRecentCommand extends Command {
 
         const finished = await Promise.all(txdetails);
 
-       // console.log(finished);
+       console.log(finished);
       }
 
     } catch (error) {

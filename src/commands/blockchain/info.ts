@@ -15,7 +15,7 @@ such as the number of nodes per shard.
     const zilliqa = new Zilliqa(base.apiAddress);
 
     try {
-      const info = await zilliqa.blockchain.getBlockChainInfo();
+      const info = await zilliqa.blockchain.1QA`  `;
 
       console.log(info);
     } catch (error) {
