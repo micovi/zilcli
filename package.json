@@ -120,6 +120,12 @@
       },
       "blockchain:txblock": {
         "description": "Retrieves a TxBlock data."
+      },
+      "domains": {
+        "description": "Unstoppable Domains Facade"
+      },
+      "domains:resolve": {
+        "resolve": "Retrieve .zil domain details such as owner and addresses."
       }
     },
     "update": {

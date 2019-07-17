@@ -51,10 +51,12 @@ export class Base {
 
     try {
       const namicorn = new Namicorn();
-      const domainResult = await namicorn.address(string, 'ZIL');
+      if (namicorn.isValidDomain(string)) {
+        const domainResult = await namicorn.address(string, 'ZIL');
 
-      if (domainResult !== null) {
-        console.log(`${string} contact resolves to ${domainResult}`);
+        if (domainResult !== null) {
+          console.log(`${string} contact resolves to ${domainResult}`);
+        }
       }
     } catch (error) {
 
