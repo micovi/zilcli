@@ -53,7 +53,11 @@ export class Base {
         return false;
       }
     } else {
-      return validation.isAddress(fromBech32Address(string));
+      if (validation.isAddress(fromBech32Address(string))) {
+        return string;
+      } else {
+        return false;
+      }
     }
   }
 

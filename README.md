@@ -29,10 +29,14 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`zilcli blockchain:info`](#zilcli-blockchaininfo)
+* [`zilcli blockchain:txblock [BLOCK_NUMBER]`](#zilcli-blockchaintxblock-block_number)
 * [`zilcli contacts:add [ADDRESS] [NAME]`](#zilcli-contactsadd-address-name)
 * [`zilcli contacts:list`](#zilcli-contactslist)
 * [`zilcli contacts:remove [NAME]`](#zilcli-contactsremove-name)
 * [`zilcli help [COMMAND]`](#zilcli-help-command)
+* [`zilcli tx:details [TXHASH]`](#zilcli-txdetails-txhash)
+* [`zilcli tx:recent [LIMIT]`](#zilcli-txrecent-limit)
 * [`zilcli tx:send`](#zilcli-txsend)
 * [`zilcli update [CHANNEL]`](#zilcli-update-channel)
 * [`zilcli wallet:create`](#zilcli-walletcreate)
@@ -41,6 +45,39 @@ USAGE
 * [`zilcli wallet:import [NAME] [PRIVATEKEY]`](#zilcli-walletimport-name-privatekey)
 * [`zilcli wallet:list`](#zilcli-walletlist)
 * [`zilcli wallet:remove [NAME]`](#zilcli-walletremove-name)
+
+## `zilcli blockchain:info`
+
+Retrieves generally blockchain information
+
+```
+USAGE
+  $ zilcli blockchain:info
+
+DESCRIPTION
+  ...
+  such as the number of nodes per shard.
+```
+
+_See code: [src/commands/blockchain/info.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/blockchain/info.ts)_
+
+## `zilcli blockchain:txblock [BLOCK_NUMBER]`
+
+Retrieves a TxBlock data.
+
+```
+USAGE
+  $ zilcli blockchain:txblock [BLOCK_NUMBER]
+
+ARGUMENTS
+  BLOCK_NUMBER  Block number
+
+DESCRIPTION
+  ...
+  By passing no argument it will retrieve the latest tx block.
+```
+
+_See code: [src/commands/blockchain/txblock.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/blockchain/txblock.ts)_
 
 ## `zilcli contacts:add [ADDRESS] [NAME]`
 
@@ -109,6 +146,40 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
+
+## `zilcli tx:details [TXHASH]`
+
+Returns the details of a specified Transaction.
+
+```
+USAGE
+  $ zilcli tx:details [TXHASH]
+
+ARGUMENTS
+  TXHASH  Transaction hash you want to get details for
+
+DESCRIPTION
+  ...
+```
+
+_See code: [src/commands/tx/details.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/tx/details.ts)_
+
+## `zilcli tx:recent [LIMIT]`
+
+Retrieve a list with recent 100 transactions
+
+```
+USAGE
+  $ zilcli tx:recent [LIMIT]
+
+ARGUMENTS
+  LIMIT  Limit
+
+DESCRIPTION
+  ...
+```
+
+_See code: [src/commands/tx/recent.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/tx/recent.ts)_
 
 ## `zilcli tx:send`
 
