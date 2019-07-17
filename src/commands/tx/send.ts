@@ -78,7 +78,7 @@ class TxSendCommand extends Command {
       : await zilliqa.wallet.addByKeystore(JSON.stringify(internalFrom.data), passphrase);
 
 
-    if (to === undefined || base.validateAddress(to) === false) {
+    if (to === undefined || ((await base.validateAddress(to)) === false)) {
       let response: { value: string } = await inquirer.prompt([
         {
           name: 'value',
@@ -90,7 +90,7 @@ class TxSendCommand extends Command {
       to = response.value;
     }
 
-    const validated = base.validateAddress(to);
+    const validated = await base.validateAddress(to);
 
     if (validated === false) {
       console.error('Destination address could not be validated.');

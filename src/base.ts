@@ -5,6 +5,8 @@ import chalk from "chalk";
 import { validation } from "@zilliqa-js/util";
 import { toBech32Address, fromBech32Address } from '@zilliqa-js/crypto';
 
+import { Namicorn } from "namicorn";
+
 export interface Account {
   name: string;
   address: string;
@@ -43,22 +45,41 @@ export class Base {
     return '0x' + string;
   };
 
-  validateAddress(string: string) {
-    let contact = this.contacts.find((item: Contact) => item.name === string);
+  async validateAddress(string: string) {
 
-    if (contact !== undefined) {
-      if (validation.isAddress(fromBech32Address(contact.address))) {
-        return contact.address;
-      } else {
-        return false;
+    // Try to resolve a domain
+
+    try {
+      const namicorn = new Namicorn();
+      const domainResult = await namicorn.address(string, 'ZIL');
+
+      if (domainResult !== null) {
+        console.log(`${string} contact resolves to ${domainResult}`);
       }
-    } else {
-      if (validation.isAddress(fromBech32Address(string))) {
-        return string;
-      } else {
-        return false;
-      }
+    } catch (error) {
+
     }
+
+
+    // Try to resolve a local contact
+    try {
+      let contact = this.contacts.find((item: Contact) => item.name === string);
+      if (contact !== undefined) {
+        console.log(`${string} contact resolves to ${contact.address}`);
+        if (validation.isAddress(fromBech32Address(contact.address))) {
+          return contact.address;
+        }
+      }
+    } catch (error) {
+
+    }
+
+    // Try to validate bech32 address
+    if (validation.isAddress(fromBech32Address(string))) {
+      return string;
+    }
+
+    return false;
   }
 
   isNumeric = (n: any) => {
