@@ -11,7 +11,7 @@ class TxDetailsCommand extends Command {
 
   static args = [
     {
-      name: 'txhash',
+      name: 'hash',
       description: 'Transaction hash you want to get details for',
     }
   ]
