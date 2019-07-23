@@ -38,7 +38,7 @@ USAGE
 * [`zilcli domains:resolve [DOMAIN]`](#zilcli-domainsresolve-domain)
 * [`zilcli help [COMMAND]`](#zilcli-help-command)
 * [`zilcli tx:batch`](#zilcli-txbatch)
-* [`zilcli tx:details [TXHASH]`](#zilcli-txdetails-txhash)
+* [`zilcli tx:details [HASH]`](#zilcli-txdetails-hash)
 * [`zilcli tx:recent [LIMIT]`](#zilcli-txrecent-limit)
 * [`zilcli tx:send`](#zilcli-txsend)
 * [`zilcli update [CHANNEL]`](#zilcli-update-channel)
@@ -192,31 +192,38 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0
 
 ## `zilcli tx:batch`
 
-Create and send a transaction
+Create and send batch transactions
 
 ```
 USAGE
   $ zilcli tx:batch
 
 OPTIONS
-  -f, --file=file  (required) private keys file path
-  -t, --to=to      (required) destination address
+  -f, --file=file      (required) transactions file path
+  -t, --to=to          (required) destination address
+  --gasprice=gasprice  gas price (in Qa)
 
 DESCRIPTION
+  Batch file format should contain private key, destination and amount used to send.
+
+  File format example:
+  privatekey destination 10
+  privatekey destination all
+  privatekey destination 0.5
 ```
 
 _See code: [src/commands/tx/batch.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/tx/batch.ts)_
 
-## `zilcli tx:details [TXHASH]`
+## `zilcli tx:details [HASH]`
 
 Returns the details of a specified Transaction.
 
 ```
 USAGE
-  $ zilcli tx:details [TXHASH]
+  $ zilcli tx:details [HASH]
 
 ARGUMENTS
-  TXHASH  Transaction hash you want to get details for
+  HASH  Transaction hash you want to get details for
 
 DESCRIPTION
   ...

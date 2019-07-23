@@ -953,12 +953,16 @@
         "version": "02cef2b14e92f602e576751daa7d0e227a8156c4b9d91f85da6a984367217c3d",
         "signature": "2a14bd037dec6fb7ea4cc740b1204ccb667c6f67404b954d667187e7864b4a09"
       },
+      "/users/ovi1/documents/projects/zilclinew/node_modules/@types/listr/index.d.ts": {
+        "version": "ba5ef11a3990ee7c644f3ebeaf28f4bfe80eb26de9e2d956dc9e9f559523e5fc",
+        "signature": "ba5ef11a3990ee7c644f3ebeaf28f4bfe80eb26de9e2d956dc9e9f559523e5fc"
+      },
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/batch.ts": {
-        "version": "065f1afd76779da615a21bb86a311494dd26be83953a6a9d637eb7a48a6ebb2f",
+        "version": "277ce32c9d29b9a40e9c79d76e66a81082142abe354daf9682ed90e1b78f883c",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
       },
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/details.ts": {
-        "version": "26cb7725d12da845b109c6c9333d3df429c018da73f255739988ba78bdcb3fc0",
+        "version": "2de87342b80d7a0a2eff0fe55c10a2c29d85dcf497ee4e4c217021c14c81e87d",
         "signature": "62e5ffa5c59ab7b00cbac08f8556cf821334b81a4216d4310f23c82b398f03f9"
       },
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/recent.ts": {
@@ -2524,16 +2528,22 @@
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/ovi1/documents/projects/zilclinew/node_modules/@types/listr/index.d.ts": [
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/stream.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/rxjs/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/batch.ts": [
         "/users/ovi1/documents/projects/zilclinew/node_modules/@oclif/command/lib/index.d.ts",
         "/users/ovi1/documents/projects/zilclinew/src/base.ts",
-        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/inquirer/index.d.ts",
-        "/users/ovi1/documents/projects/zilclinew/node_modules/chalk/types/index.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/fs.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/readline.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/zilliqa/dist/index.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/util/dist/index.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@zilliqa-js/account/dist/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/listr/index.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -4517,6 +4527,13 @@
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/sinon/ts3.1/index.d.ts": [
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
         "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/ovi1/documents/projects/zilclinew/node_modules/@types/listr/index.d.ts": [
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/stream.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/rxjs/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/util.d.ts",
+        "/users/ovi1/documents/projects/zilclinew/node_modules/@types/node/ts3.2/util.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
@@ -4758,7 +4775,6 @@
       "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/list.ts",
       "/users/ovi1/documents/projects/zilclinew/src/commands/contacts/remove.ts",
       "/users/ovi1/documents/projects/zilclinew/src/commands/domains/resolve.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/details.ts",
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/recent.ts",
       "/users/ovi1/documents/projects/zilclinew/src/commands/tx/send.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/slugify/index.d.ts",
@@ -4788,7 +4804,9 @@
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/nock/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/semver/index.d.ts",
       "/users/ovi1/documents/projects/zilclinew/node_modules/@types/sinon/ts3.1/index.d.ts",
-      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/batch.ts"
+      "/users/ovi1/documents/projects/zilclinew/node_modules/@types/listr/index.d.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/batch.ts",
+      "/users/ovi1/documents/projects/zilclinew/src/commands/tx/details.ts"
     ]
   },
   "version": "3.5.2"
