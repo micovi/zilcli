@@ -29,6 +29,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`zilcli blockchain:balance [ADDRESS]`](#zilcli-blockchainbalance-address)
 * [`zilcli blockchain:info`](#zilcli-blockchaininfo)
 * [`zilcli blockchain:txblock [BLOCK_NUMBER]`](#zilcli-blockchaintxblock-block_number)
 * [`zilcli contacts:add [ADDRESS] [NAME]`](#zilcli-contactsadd-address-name)
@@ -36,7 +37,8 @@ USAGE
 * [`zilcli contacts:remove [NAME]`](#zilcli-contactsremove-name)
 * [`zilcli domains:resolve [DOMAIN]`](#zilcli-domainsresolve-domain)
 * [`zilcli help [COMMAND]`](#zilcli-help-command)
-* [`zilcli tx:details [TXHASH]`](#zilcli-txdetails-txhash)
+* [`zilcli tx:batch`](#zilcli-txbatch)
+* [`zilcli tx:details [HASH]`](#zilcli-txdetails-hash)
 * [`zilcli tx:recent [LIMIT]`](#zilcli-txrecent-limit)
 * [`zilcli tx:send`](#zilcli-txsend)
 * [`zilcli update [CHANNEL]`](#zilcli-update-channel)
@@ -46,6 +48,29 @@ USAGE
 * [`zilcli wallet:import [NAME] [PRIVATEKEY]`](#zilcli-walletimport-name-privatekey)
 * [`zilcli wallet:list`](#zilcli-walletlist)
 * [`zilcli wallet:remove [NAME]`](#zilcli-walletremove-name)
+
+## `zilcli blockchain:balance [ADDRESS]`
+
+Returns balance for an address or from a batch of addreses.
+
+```
+USAGE
+  $ zilcli blockchain:balance [ADDRESS]
+
+ARGUMENTS
+  ADDRESS  Address you want to get the balance for (could be domain name or contact name)
+
+OPTIONS
+  --batch=batch
+
+DESCRIPTION
+  ...
+     Use batch flag to check balance for multiple addresses. You have to enter the full path to file (eg zilcli 
+  blockchain:balance --batch=/home/user/addresses.txt)
+      $ zilcli blockchain:balance --batch=/home/user/addresses.txt
+```
+
+_See code: [src/commands/blockchain/balance.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/blockchain/balance.ts)_
 
 ## `zilcli blockchain:info`
 
@@ -165,16 +190,40 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
 
-## `zilcli tx:details [TXHASH]`
+## `zilcli tx:batch`
+
+Create and send batch transactions
+
+```
+USAGE
+  $ zilcli tx:batch
+
+OPTIONS
+  -f, --file=file      (required) transactions file path
+  -t, --to=to          (required) destination address
+  --gasprice=gasprice  gas price (in Qa)
+
+DESCRIPTION
+  Batch file format should contain private key, destination and amount used to send.
+
+  File format example:
+  privatekey destination 10
+  privatekey destination all
+  privatekey destination 0.5
+```
+
+_See code: [src/commands/tx/batch.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/tx/batch.ts)_
+
+## `zilcli tx:details [HASH]`
 
 Returns the details of a specified Transaction.
 
 ```
 USAGE
-  $ zilcli tx:details [TXHASH]
+  $ zilcli tx:details [HASH]
 
 ARGUMENTS
-  TXHASH  Transaction hash you want to get details for
+  HASH  Transaction hash you want to get details for
 
 DESCRIPTION
   ...
