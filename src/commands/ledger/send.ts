@@ -21,7 +21,6 @@ const Z = require("../../ledger-interface").default;
 async function open() {
   // This might throw if device not connected via USB
   const t = await TransportNodeHid.open("");
-  t.setDebugMode(true);
   return t;
 }
 
