@@ -37,6 +37,8 @@ USAGE
 * [`zilcli contacts:remove [NAME]`](#zilcli-contactsremove-name)
 * [`zilcli domains:resolve [DOMAIN]`](#zilcli-domainsresolve-domain)
 * [`zilcli help [COMMAND]`](#zilcli-help-command)
+* [`zilcli ledger:account`](#zilcli-ledgeraccount)
+* [`zilcli ledger:send`](#zilcli-ledgersend)
 * [`zilcli tx:batch`](#zilcli-txbatch)
 * [`zilcli tx:details [HASH]`](#zilcli-txdetails-hash)
 * [`zilcli tx:recent [LIMIT]`](#zilcli-txrecent-limit)
@@ -189,6 +191,39 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
+
+## `zilcli ledger:account`
+
+Lists all configured Zilliqa Wallets
+
+```
+USAGE
+  $ zilcli ledger:account
+
+DESCRIPTION
+  Prints a table with all the configured Wallet Accounts.
+  ID, Name, Address, Balance
+```
+
+_See code: [src/commands/ledger/account.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/ledger/account.ts)_
+
+## `zilcli ledger:send`
+
+Create and send a transaction using the Ledger Device
+
+```
+USAGE
+  $ zilcli ledger:send
+
+OPTIONS
+  -a, --amount=amount  amount in ZIL
+  -g, --gas=gas        gas to use (defined in Li)
+  -t, --to=to          destination address
+
+DESCRIPTION
+```
+
+_See code: [src/commands/ledger/send.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/ledger/send.ts)_
 
 ## `zilcli tx:batch`
 
