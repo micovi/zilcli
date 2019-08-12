@@ -39,6 +39,11 @@ USAGE
 * [`zilcli help [COMMAND]`](#zilcli-help-command)
 * [`zilcli ledger:account`](#zilcli-ledgeraccount)
 * [`zilcli ledger:send`](#zilcli-ledgersend)
+* [`zilcli plugins`](#zilcli-plugins)
+* [`zilcli plugins:install PLUGIN...`](#zilcli-pluginsinstall-plugin)
+* [`zilcli plugins:link PLUGIN`](#zilcli-pluginslink-plugin)
+* [`zilcli plugins:uninstall PLUGIN...`](#zilcli-pluginsuninstall-plugin)
+* [`zilcli plugins:update`](#zilcli-pluginsupdate)
 * [`zilcli tx:batch`](#zilcli-txbatch)
 * [`zilcli tx:details [HASH]`](#zilcli-txdetails-hash)
 * [`zilcli tx:recent [LIMIT]`](#zilcli-txrecent-limit)
@@ -194,15 +199,11 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0
 
 ## `zilcli ledger:account`
 
-Lists all configured Zilliqa Wallets
+Displays details of Ledger Account
 
 ```
 USAGE
   $ zilcli ledger:account
-
-DESCRIPTION
-  Prints a table with all the configured Wallet Accounts.
-  ID, Name, Address, Balance
 ```
 
 _See code: [src/commands/ledger/account.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/ledger/account.ts)_
@@ -224,6 +225,123 @@ DESCRIPTION
 ```
 
 _See code: [src/commands/ledger/send.ts](https://github.com/micovi/zilcli/blob/v2.0.0/src/commands/ledger/send.ts)_
+
+## `zilcli plugins`
+
+list installed plugins
+
+```
+USAGE
+  $ zilcli plugins
+
+OPTIONS
+  --core  show core plugins
+
+EXAMPLE
+  $ zilcli plugins
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/index.ts)_
+
+## `zilcli plugins:install PLUGIN...`
+
+installs a plugin into the CLI
+
+```
+USAGE
+  $ zilcli plugins:install PLUGIN...
+
+ARGUMENTS
+  PLUGIN  plugin to install
+
+OPTIONS
+  -f, --force    yarn install with force flag
+  -h, --help     show CLI help
+  -v, --verbose
+
+DESCRIPTION
+  Can be installed from npm or a git url.
+
+  Installation of a user-installed plugin will override a core plugin.
+
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command 
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in 
+  the CLI without the need to patch and update the whole CLI.
+
+ALIASES
+  $ zilcli plugins:add
+
+EXAMPLES
+  $ zilcli plugins:install myplugin 
+  $ zilcli plugins:install https://github.com/someuser/someplugin
+  $ zilcli plugins:install someuser/someplugin
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/install.ts)_
+
+## `zilcli plugins:link PLUGIN`
+
+links a plugin into the CLI for development
+
+```
+USAGE
+  $ zilcli plugins:link PLUGIN
+
+ARGUMENTS
+  PATH  [default: .] path to plugin
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose
+
+DESCRIPTION
+  Installation of a linked plugin will override a user-installed or core plugin.
+
+  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello' 
+  command will override the user-installed or core plugin implementation. This is useful for development work.
+
+EXAMPLE
+  $ zilcli plugins:link myplugin
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/link.ts)_
+
+## `zilcli plugins:uninstall PLUGIN...`
+
+removes a plugin from the CLI
+
+```
+USAGE
+  $ zilcli plugins:uninstall PLUGIN...
+
+ARGUMENTS
+  PLUGIN  plugin to uninstall
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose
+
+ALIASES
+  $ zilcli plugins:unlink
+  $ zilcli plugins:remove
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/uninstall.ts)_
+
+## `zilcli plugins:update`
+
+update installed plugins
+
+```
+USAGE
+  $ zilcli plugins:update
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v1.7.8/src/commands/plugins/update.ts)_
 
 ## `zilcli tx:batch`
 

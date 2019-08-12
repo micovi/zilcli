@@ -14,9 +14,7 @@ async function open() {
 }
 
 class LedgerAccountCommand extends Command {
-  static description = `Lists all configured Zilliqa Wallets
-Prints a table with all the configured Wallet Accounts.
-ID, Name, Address, Balance`;
+  static description = `Displays details of Ledger Account`;
 
 
   async run() {
