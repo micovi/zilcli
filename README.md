@@ -12,8 +12,9 @@ Command Line Interface for Zilliqa Blockchain
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
-# Usage
-[![Welcome](https://raw.githubusercontent.com/micovi/zilcli/master/docs/welcome.png)]
+
+
+![Welcome](https://raw.githubusercontent.com/micovi/zilcli/master/docs/welcome.png)
 
 # Installation instructions
 If you have nodejs > v8.4.0 installed on your system you can install the CLI globally using
