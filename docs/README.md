@@ -12,8 +12,6 @@ Command Line Interface for Zilliqa Blockchain
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
-# Usage
-[![Welcome](https://raw.githubusercontent.com/micovi/zilcli/master/docs/welcome.png)]
 
 # Installation instructions
 If you have nodejs > v8.4.0 installed on your system you can install the CLI globally using
@@ -22,9 +20,212 @@ If you have nodejs > v8.4.0 installed on your system you can install the CLI glo
 $ npm install -g zilcli
 ```
 
-Or you can install the binary packaged versions for multiple Operating Systems. Check the Releases page.
+Or you can install the binary packaged versions for multiple Operating Systems
 
-# Commands
+### Download Auto-Installers
+
+**Windows**
+
+[Windows x64: zilcli-v1.0.1-x64.exe](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1-x64.exe)
+
+[Windows x86: zilcli-v1.0.1-x86.exe](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1-x86.exe)
+
+**MacOS**
+
+[MacOS: zilcli-v1.0.1.pkg](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1.pkg)
+
+**Linux**
+
+Coming soon
+
+Check [Releases page](https://github.com/micovi/zilcli/releases/tag/v1.0.1) for multiple versions
+
+# Usage examples
+
+## How to create a new wallet?
+Make sure you have zilcli installed globally. Please check [Installation instructions](#installation-instructions) first.
+
+The simplest way to create a new wallet is by using the command: ```zilcli wallet:create``` with no flags or arguments and follow along the instructions on the screen:
+
+1. Execute wallet:create command with no arguments
+
+```bash
+$ zilcli wallet:create
+```
+
+2. Enter your desired account name (eg: default-account)
+
+```bash
+Enter account name: default-account
+```
+
+3. Select the network where you want it to be created, mainnet or testnet
+
+```bash
+Select network: mainnet
+```
+
+4. Enter passphrase that will be used to access the wallet (Remember to note your passphrase and store it in a safe place)
+
+```bash
+Enter passphrase: *******
+```
+
+5. If creation is successfull you will se a success message
+
+```bash
+Wallet successfully generate with address: 4af0fa5e5790562e5937876af0bc89f3efa826ef.
+Trying to encrypt wallet with provided passphrase and scrypt method...
+Successfully encrypted, now saving to wallet manager.
+Account default-account successfully imported.
+```
+
+
+6. Next you can check your availalble wallets using wallet:list command
+
+```bash
+$ zilcli wallet:list
+
+Name            Address                                  Network 
+default-account 4af0fa5e5790562e5937876af0bc89f3efa826ef mainnet 
+```
+
+For more advanced usage check [`zilcli wallet:create`](#zilcli-walletcreate-name) command
+
+## How to import a wallet?
+
+Importing an existing wallet is as easy as creating a new one. You can import a wallet by it's private key using the interactive ```zilcli wallet:import``` command:
+
+1. Start the interactive import tool using zilcli wallet:import
+
+```bash
+$ zilcli wallet:import
+```
+
+2. Enter your desired account name (eg: default-account)
+
+```bash
+Enter account name: default-account
+```
+
+3. Select the network where you want it to be created, mainnet or testnet
+
+```bash
+Select network: mainnet
+```
+
+4. Enter your private key you wish to import
+
+```bash
+Enter Private Key: *******
+```
+
+5. Enter passphrase that will be used to access the wallet (Remember to note your passphrase and store it in a safe place)
+
+```bash
+Enter passphrase ******
+```
+
+6. If creation is successfull you will se a success message
+
+```bash
+Trying to import wallet...
+Successfully encrypted, now saving to wallet manager.
+Account default successfully imported.
+```
+
+7. Next you can check your availalble wallets using wallet:list command
+
+```bash
+$ zilcli wallet:list
+
+Name            Address                                  Network 
+default-account 4af0fa5e5790562e5937876af0bc89f3efa826ef mainnet 
+```
+
+For more advanced usage check [`zilcli wallet:import`]((#zilcli-walletimport-name-privatekey)) command
+
+## How to send a transaction?
+
+You can send a transaction using the interactive UI zilcli provides:
+
+1. Execute tx:send command with no arguments
+
+```bash
+$ zilcli tx:send
+```
+
+2. Select the account you want to use for the transaction
+
+```bash
+Select account used default-account
+```
+
+3. Enter your passphrase used to decode the account data and sign the transaction.
+
+```bash
+Enter passphrase ****
+Selected network mainnet
+```
+
+4. Enter the destination address (where you want to send the ZIL tokens)
+
+```bash
+Enter destination address F69Feaa38828d7F8Cf1e82F28e42Bc465E3f082a
+```
+
+5. Enter amount you wish to transfer, **in ZIL**
+
+```bash
+Enter amount (in ZIL) 0.2
+```
+
+6. Confirm your transaction by typing yes or no.
+
+```bash
+Confirm that you wish to send 0.2 ZIL to F69Feaa38828d7F8Cf1e82F28e42Bc465E3f082a: Yes
+Mininum gas price on the network 1000 Li
+```
+
+7. Enter gas amount, **in Li**
+
+```bash
+Enter gas amount (in Li) 1000
+```
+
+8. You will have to wait for the transaction to complete (usually takes ~2 min)
+
+```bash
+Generating and sending transaction... 
+Transaction successfully sent
+https://viewblock.io/zilliqa/tx/d9ec701c67f03877ae4069025960d6fc6221f72b7ad6b07e756b9e75252ae22e
+{ cumulative_gas: 1, epoch_num: '66629', success: true }
+```
+
+For more advanced usage check [`zilcli tx:send`](#zilcli-txsend) command
+
+
+\
+
+
+
+
+
+## How to send a batch transaction? (**2.0**)
+  TEst
+
+## How to check your Ledger Balance? (**2.0**)
+  TEst
+
+## How to send a tx with Ledger? (**2.0**)
+  TEst
+
+## How to verify a .ZIL Domain? (**2.0**)
+  TEst
+
+## How to use the Local Address Book? (**2.0**)
+
+# Commands list
 <!-- commands -->
 * [`zilcli blockchain:balance [ADDRESS]`](#zilcli-blockchainbalance-address)
 * [`zilcli blockchain:info`](#zilcli-blockchaininfo)
@@ -74,7 +275,7 @@ DESCRIPTION
       $ zilcli blockchain:balance --batch=/home/user/addresses.txt
 ```
 
-_See code: [src/commands/blockchain/balance.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/blockchain/balance.ts)_
+_See code: [src/commands/blockchain/balance.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/blockchain/balance.ts)_
 
 ## `zilcli blockchain:info`
 
@@ -89,7 +290,7 @@ DESCRIPTION
   such as the number of nodes per shard.
 ```
 
-_See code: [src/commands/blockchain/info.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/blockchain/info.ts)_
+_See code: [src/commands/blockchain/info.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/blockchain/info.ts)_
 
 ## `zilcli blockchain:txblock [BLOCK_NUMBER]`
 
@@ -107,7 +308,7 @@ DESCRIPTION
   By passing no argument it will retrieve the latest tx block.
 ```
 
-_See code: [src/commands/blockchain/txblock.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/blockchain/txblock.ts)_
+_See code: [src/commands/blockchain/txblock.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/blockchain/txblock.ts)_
 
 ## `zilcli contacts:add [ADDRESS] [NAME]`
 
@@ -126,7 +327,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/contacts/add.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/contacts/add.ts)_
+_See code: [src/commands/contacts/add.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/contacts/add.ts)_
 
 ## `zilcli contacts:list`
 
@@ -141,7 +342,7 @@ DESCRIPTION
   Name, Address, Old Address format
 ```
 
-_See code: [src/commands/contacts/list.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/contacts/list.ts)_
+_See code: [src/commands/contacts/list.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/contacts/list.ts)_
 
 ## `zilcli contacts:remove [NAME]`
 
@@ -158,7 +359,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/contacts/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/contacts/remove.ts)_
+_See code: [src/commands/contacts/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/contacts/remove.ts)_
 
 ## `zilcli domains:resolve [DOMAIN]`
 
@@ -175,7 +376,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/domains/resolve.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/domains/resolve.ts)_
+_See code: [src/commands/domains/resolve.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/domains/resolve.ts)_
 
 ## `zilcli help [COMMAND]`
 
@@ -203,7 +404,7 @@ USAGE
   $ zilcli ledger:account
 ```
 
-_See code: [src/commands/ledger/account.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/ledger/account.ts)_
+_See code: [src/commands/ledger/account.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/ledger/account.ts)_
 
 ## `zilcli ledger:send`
 
@@ -221,7 +422,7 @@ OPTIONS
 DESCRIPTION
 ```
 
-_See code: [src/commands/ledger/send.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/ledger/send.ts)_
+_See code: [src/commands/ledger/send.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/ledger/send.ts)_
 
 ## `zilcli plugins`
 
@@ -362,7 +563,7 @@ DESCRIPTION
   privatekey destination 0.5
 ```
 
-_See code: [src/commands/tx/batch.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/tx/batch.ts)_
+_See code: [src/commands/tx/batch.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/tx/batch.ts)_
 
 ## `zilcli tx:details [HASH]`
 
@@ -379,7 +580,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/tx/details.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/tx/details.ts)_
+_See code: [src/commands/tx/details.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/tx/details.ts)_
 
 ## `zilcli tx:recent [LIMIT]`
 
@@ -396,7 +597,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/tx/recent.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/tx/recent.ts)_
+_See code: [src/commands/tx/recent.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/tx/recent.ts)_
 
 ## `zilcli tx:send`
 
@@ -416,7 +617,7 @@ OPTIONS
 DESCRIPTION
 ```
 
-_See code: [src/commands/tx/send.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/tx/send.ts)_
+_See code: [src/commands/tx/send.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/tx/send.ts)_
 
 ## `zilcli update [CHANNEL]`
 
@@ -436,7 +637,7 @@ USAGE
   $ zilcli wallet:create
 ```
 
-_See code: [src/commands/wallet/create.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/wallet/create.ts)_
+_See code: [src/commands/wallet/create.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/wallet/create.ts)_
 
 ## `zilcli wallet:details [NAME]`
 
@@ -453,7 +654,7 @@ DESCRIPTION
   Returned data: Name, ID, Address, Balance privateKey, publicKey, Network details
 ```
 
-_See code: [src/commands/wallet/details.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/wallet/details.ts)_
+_See code: [src/commands/wallet/details.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/wallet/details.ts)_
 
 ## `zilcli wallet:export [NAME]`
 
@@ -470,7 +671,7 @@ DESCRIPTION
   Export wallet account to keystore file encoded with passphrase.
 ```
 
-_See code: [src/commands/wallet/export.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/wallet/export.ts)_
+_See code: [src/commands/wallet/export.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/wallet/export.ts)_
 
 ## `zilcli wallet:import [NAME] [PRIVATEKEY]`
 
@@ -492,7 +693,7 @@ DESCRIPTION
   Keystore file must be located in $HOME/.zilcli/ directory.
 ```
 
-_See code: [src/commands/wallet/import.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/wallet/import.ts)_
+_See code: [src/commands/wallet/import.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/wallet/import.ts)_
 
 ## `zilcli wallet:list`
 
@@ -507,7 +708,7 @@ DESCRIPTION
   ID, Name, Address, Balance
 ```
 
-_See code: [src/commands/wallet/list.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/wallet/list.ts)_
+_See code: [src/commands/wallet/list.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/wallet/list.ts)_
 
 ## `zilcli wallet:remove [NAME]`
 
@@ -524,5 +725,14 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/wallet/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta.1/src/commands/wallet/remove.ts)_
+_See code: [src/commands/wallet/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.0-beta/src/commands/wallet/remove.ts)_
 <!-- commandsstop -->
+
+
+## Feedback and contributing
+
+We would love to hear some feedback from you, if you find any bugs or you have any feature requests you can open an Issue on github. For any questions you can find me on Zilliqa Telegram Channels under the nickname **micovi**
+
+You can contribute by opening any PR on github.
+
+Thank you! 🍻
