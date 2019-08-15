@@ -1,7 +1,7 @@
 {
   "name": "zilcli",
   "description": "Command Line Interface for Zilliqa Blockchain",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "author": "Ovidiu Miclea <micleaovidiul@gmail.com> @micovi",
   "bin": {
     "zilcli": "./bin/run"
@@ -67,7 +67,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
-    "commands": "./src/commands",
+    "commands": "./lib/commands",
     "bin": "zilcli",
     "plugins": [
       "@oclif/plugin-plugins",
@@ -144,7 +144,7 @@
     },
     "update": {
       "s3": {
-        "bucket": "zilliqa-cli-test"
+        "host": "https://raw.githubusercontent.com/micovi/zilcli/master/dist/"
       }
     },
     "macos": {

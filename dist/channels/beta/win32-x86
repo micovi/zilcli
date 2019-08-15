@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0-beta.2.0792cda",
+  "channel": "beta",
+  "baseDir": "zilcli",
+  "gz": "https://raw.githubusercontent.com/micovi/zilcli/master/dist/channels/beta/zilcli-v2.0.0-beta.2/zilcli-v2.0.0-beta.2-win32-x86.tar.gz",
+  "sha256gz": "c42237b01133421da8daea62d07baf409e9bba57792d36b08dda7161b4d47b39",
+  "node": {
+    "compatible": ">=8.0.0",
+    "recommended": "10.16.0"
+  }
+}
