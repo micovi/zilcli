@@ -1,6 +1,7 @@
 import { Command } from "@oclif/command";
 import * as Zilcli from "../../base";
 import { Zilliqa } from '@zilliqa-js/zilliqa';
+import "babel-polyfill";
 import TransportNodeHid from "@ledgerhq/hw-transport-node-hid";
 import { BN, units, Long } from '@zilliqa-js/util';
 
@@ -8,9 +9,13 @@ import { BN, units, Long } from '@zilliqa-js/util';
 const Z = require("../../ledger-interface").default;
 
 async function open() {
-  // This might throw if device not connected via USB
-  const t = await TransportNodeHid.open("");
-  return t;
+  try {
+    // This might throw if device not connected via USB
+    const t = await TransportNodeHid.open("");
+    return t;
+  } catch (error) {
+    throw Error('Please check your Ledger Device is connected and unlocked.');
+  }
 }
 
 class LedgerAccountCommand extends Command {
@@ -24,13 +29,14 @@ class LedgerAccountCommand extends Command {
     const transport = await open();
 
     if (transport instanceof Error) {
+      //console.error('Please check your Ledger Device is connected.');
       this.error(transport.message)
     }
 
     const zil = new Z(transport);
 
     try {
-      const address = await zil.getAddress(1);
+      const address = await zil.getPublicAddress(1);
 
       this.log(`Account address is ${address}`);
 

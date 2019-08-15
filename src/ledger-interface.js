@@ -67,6 +67,8 @@ class Zilliqa {
     let payload = Buffer.alloc(4);
     payload.writeInt32LE(index);
 
+    console.log('Please confirm action on Ledger.');
+
     return this.transport
       .send(CLA, INS.getPublickKey, P1, P2, payload)
       .then(response => {
@@ -83,13 +85,20 @@ class Zilliqa {
     let payload = Buffer.alloc(4);
     payload.writeInt32LE(index);
 
+    console.log('Please confirm action on Ledger.');
+
     return this.transport
       .send(CLA, INS.getPublicAddress, P1, P2, payload)
       .then(response => {
         // After the first PubKeyByteLen bytes, the remaining is the bech32 address string.
         const pubAddr = response.slice(PubKeyByteLen, PubKeyByteLen + Bech32AddrLen).toString("utf-8");
         return pubAddr ;
-      });
+      }).catch(error => {
+        if(error.statusCode === 26368) {
+          throw Error('Please check if Zilliqa App is open on Ledger.')
+        }
+        throw Error(error.message);
+      }) ;
   }
 
   signTxn(keyIndex, txnParams) {
@@ -114,8 +123,8 @@ class Zilliqa {
     }
 
     var txnBytes = txnEncoder(txnParams);
-    const message = JSON.stringify({ "Encoded transaction": txnBytes.toString('hex') }, null, 2);
-    console.log(chalk.green(message));
+
+    console.log('Please verify tx data on Ledger and confirm it.');
 
     const STREAM_LEN = 32; // Stream in batches of STREAM_LEN bytes each.
     var txn1Bytes;

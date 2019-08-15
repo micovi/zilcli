@@ -96,7 +96,7 @@ export class Base {
   }
 
   writeJsonFile(fileName: string, contents: object) {
-    return fs.writeJSONSync(path.join(this.homePath, '.zilcli', fileName), contents);
+    return fs.outputJsonSync(path.join(this.homePath, '.zilcli', fileName), contents);
   }
 
   getAccounts(): Account[] {
@@ -130,7 +130,7 @@ export class Base {
 
       try {
         // Rewrite accounts.json file
-        await fs.writeJSON(path.join(this.homePath, '/.zilcli/accounts.json'), this.accounts);
+        await fs.outputJson(path.join(this.homePath, '/.zilcli/accounts.json'), this.accounts);
 
         console.log(chalk.green.bold(`Account ${name} successfully removed.`));
       } catch (error) {
@@ -158,7 +158,7 @@ export class Base {
 
     try {
       // Rewrite accounts.json file
-      await fs.writeJSON(path.join(this.homePath, '/.zilcli/accounts.json'), accounts);
+      await fs.outputJson(path.join(this.homePath, '/.zilcli/accounts.json'), accounts);
 
       console.log(chalk.green.bold(`Account ${account.name} successfully imported.`));
     } catch (error) {
@@ -234,7 +234,7 @@ export class Base {
 
       try {
         // Rewrite contacts.json file
-        await fs.writeJSON(path.join(this.homePath, '/.zilcli/contacts.json'), this.contacts);
+        await fs.outputJson(path.join(this.homePath, '/.zilcli/contacts.json'), this.contacts);
 
         console.log(chalk.green.bold(`Contact ${name} successfully removed.`));
       } catch (error) {
