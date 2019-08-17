@@ -10,6 +10,11 @@
 - Local Address Book
 - Batch transfers
 
+
+```bash
+npm install -g zilcli
+```
+
 [Download 2.0](https://github.com/micovi/zilcli/releases)
 [GitHub](https://github.com/micovi/zilcli/)
 [Documentation](#zilcli)
