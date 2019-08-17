@@ -10,6 +10,7 @@ import { Zilliqa } from '@zilliqa-js/zilliqa';
 import { BN, units, Long } from '@zilliqa-js/util';
 import { Transaction } from '@zilliqa-js/account';
 import Listr from 'listr';
+import {toBech32Address} from '@zilliqa-js/crypto';
 
 class TxBatchSendCommand extends Command {
   static description = `Create and send batch transactions
@@ -22,7 +23,6 @@ privatekey destination 0.5
 `;
 
   static flags = {
-    to: flags.string({ char: 't', description: 'destination address', required: true }),
     file: flags.string({ char: 'f', description: 'transactions file path', required: true }),
     gasprice: flags.integer({ description: 'gas price (in Qa)' })
   };
@@ -82,8 +82,9 @@ privatekey destination 0.5
           gasLimit: Long.fromNumber(1),
         });
 
+
         return {
-          title: `Send ${amount} from ${wallet} to ${to}`,
+          title: `Send ${amount} from ${toBech32Address(wallet)} to ${to}`,
           txdata: txdata
         };
       });
@@ -94,7 +95,7 @@ privatekey destination 0.5
           return {
             title: it.title,
             task: async (_ctx: any, task: any) => {
-              let txresult = await zilliqa.blockchain.createTransaction(it.txdata);
+              let txresult = await zilliqa.blockchain.createTransaction(it.txdata,30,undefined,false);
               task.title = task.title + ' status ' + txresult.status + ' hash: ' + txresult.id;
             }
           }
@@ -110,6 +111,5 @@ privatekey destination 0.5
     });
   }
 }
-
 
 module.exports = TxBatchSendCommand;

@@ -52,7 +52,7 @@ class LedgerSendCommand extends Command {
 
     try {
 
-      const pubkey = await zil.getPublicKey(1);
+      const pubkey = await zil.getPublicKey(0);
 
       const address = toBech32Address(getAddressFromPublicKey(pubkey));
 
@@ -162,7 +162,7 @@ class LedgerSendCommand extends Command {
           signature: ''
         };
 
-        let signed = await zil.signTxn(1, txParams);
+        let signed = await zil.signTxn(0, txParams);
 
         txParams.signature = signed.sig;
 

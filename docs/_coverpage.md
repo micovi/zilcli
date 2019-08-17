@@ -10,6 +10,6 @@
 - Local Address Book
 - Batch transfers
 
-[Download 2.0](#download-auto-installers)
+[Download 2.0](https://github.com/micovi/zilcli/releases)
 [GitHub](https://github.com/micovi/zilcli/)
 [Documentation](#zilcli)

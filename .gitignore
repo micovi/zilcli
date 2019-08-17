@@ -3,6 +3,7 @@
 /.nyc_output
 /lib
 /tmp
+/dist
 /yarn.lock
 node_modules
 adrese.txt

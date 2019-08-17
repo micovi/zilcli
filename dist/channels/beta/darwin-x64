@@ -1,9 +1,9 @@
 {
-  "version": "2.0.0-beta.3.7ba9f22",
+  "version": "2.0.0-beta.4.f8be9ea",
   "channel": "beta",
   "baseDir": "zilcli",
-  "gz": "https://raw.githubusercontent.com/micovi/zilcli/master/dist/channels/beta/zilcli-v2.0.0-beta.3/zilcli-v2.0.0-beta.3-darwin-x64.tar.gz",
-  "sha256gz": "3faea74636f1591ae608adfd23b9e9d4975f72cf3e6a7b16a76cce533737e713",
+  "gz": "https://zilcli-vs.s3.amazonaws.com/channels/beta/zilcli-v2.0.0-beta.4/zilcli-v2.0.0-beta.4-darwin-x64.tar.gz",
+  "sha256gz": "0ba1ebc3da52903b901a1d704ad3971459f219b356f9baf79b4f79d2525e84e2",
   "node": {
     "compatible": ">=8.0.0",
     "recommended": "10.16.0"

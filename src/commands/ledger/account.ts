@@ -36,7 +36,7 @@ class LedgerAccountCommand extends Command {
     const zil = new Z(transport);
 
     try {
-      const address = await zil.getPublicAddress(1);
+      const address = await zil.getPublicAddress(0);
 
       this.log(`Account address is ${address}`);
 

@@ -11,6 +11,7 @@ Command Line Interface for Zilliqa Blockchain
 <!-- toc -->
 * [Usage](#usage)
 * [Commands](#commands)
+* [Releases](https://github.com/micovi/zilcli/releases)
 <!-- tocstop -->
 
 # Installation instructions
@@ -24,21 +25,7 @@ Or you can install the binary packaged versions for multiple Operating Systems
 
 ### Download Auto-Installers
 
-**Windows**
-
-[Windows x64: zilcli-v1.0.1-x64.exe](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1-x64.exe)
-
-[Windows x86: zilcli-v1.0.1-x86.exe](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1-x86.exe)
-
-**MacOS**
-
-[MacOS: zilcli-v1.0.1.pkg](https://github.com/micovi/zilcli/releases/download/v1.0.1/zilcli-v1.0.1.pkg)
-
-**Linux**
-
-Coming soon
-
-Check [Releases page](https://github.com/micovi/zilcli/releases/tag/v1.0.1) for multiple versions
+Check [Releases page](https://github.com/micovi/zilcli/releases) for multiple versions
 
 # Usage examples
 
@@ -205,25 +192,155 @@ https://viewblock.io/zilliqa/tx/d9ec701c67f03877ae4069025960d6fc6221f72b7ad6b07e
 For more advanced usage check [`zilcli tx:send`](#zilcli-txsend) command
 
 
-\
-
-
-
-
-
 ## How to send a batch transaction? (**2.0**)
-  TEst
+Sending a batch transaction can be done very easily using the interactive ```zilcli tx:batch``` command:
+
+1. Start the interactive batch transfer command using ```--file``` flag:
+
+```bash
+$ zilcli tx:batch --file=/Users/TestUser/Documents/transactions.txt
+
+```
+
+*Note: You can also set the gas price using the ```--gasprice``` flag:
+
+```bash
+$ zilcli tx:batch --file=${PWD}/batch1.txt --gasprice=3000000000 
+# Gas Price must be set in Qa
+# ${PWD} returns the current path opened in terminal
+```
+
+
+2. You will have to wait for the transaction to complete:
+
+```bash
+Trying to read /Users/TEst/Documents/batch1.txt
+  ⠙ Send 0.5 from zil1lvh0yv2qw5telvrel8x6e842dur6a08m504wgc to zil14wfm4rtx6yj0l5406n5sv8q2vlqky0ytv2kzwv
+    Send 0.5 from zil14wfm4rtx6yj0l5406n5sv8q2vlqky0ytv2kzwv to zil14wfm4rtx6yj0l5406n5sv8q2vlqky0ytv2kzwv
+```
+
+For more advanced usage check [`zilcli tx:batch`](#zilcli-txbatch) command
 
 ## How to check your Ledger Balance? (**2.0**)
-  TEst
+  1. You can check your default Ledger Account balance using ```zilcli ledger:account``` command:
+
+  **Note:** Make sure you have your Ledger connected, unlocked and with Zilliqa App open.
+
+  ```bash
+  $ zilcli ledger:account
+  ```
+
+  2. Confirm the Address Check Action on Ledger:
+  ```bash
+    Please confirm action on Ledger.
+    Account address is zil1tdn3m670vcs6wc77nqs5zguvmvthk0y6z6rccf
+    Account balance 0.698 ZIL
+  ```
 
 ## How to send a tx with Ledger? (**2.0**)
-  TEst
+  1. You can send and sign a transaction using Ledger using ```zilcli ledger:send``` command:
+
+  **Note:** Make sure you have your Ledger connected, unlocked and with Zilliqa App open.
+
+  ```bash
+  $ zilcli ledger:send
+  ```
+
+  2. Confirm the Private Key read on Ledger Device:
+
+  ```bash
+  Please confirm action on Ledger.
+  Account address is zil1tdn3m670vcs6wc77nqs5zguvmvthk0y6z6rccf
+  Account public key is 0363bbad88138c8fbe1613f85903f472b7b236d341a6141629113ba97fc1958130
+  Account balance 0.698 ZIL
+  ```
+
+  3. Enter destination address, contact name or .ZIL domain
+  ```bash
+  ? Enter destination address or contact name zil1uncj8cf3dft6ss8m4356c7gjyq57lwxpqhwzld
+  ```
+
+  4. Enter the amount you wish to transfer (Note that must be completed in **ZIL**)
+  ```bash
+  ? Enter amount (in ZIL) 0.65
+  ```
+
+  5. Confirm the action on the terminal and Choose Gas Amount you want to use:
+
+  ```bash
+  ? Confirm that you wish to send 0.65 ZIL to zil1uncj8cf3dft6ss8m4356c7gjyq57lwxpqhwzld: Yes
+  ```
+
+  ```bash
+  Mininum gas price on the network 1000 Li
+  ? Enter gas amount (in Li) 1000
+  ```
+
+  6. Verify the TX DATA on Ledger Device and confirm it by pressing both keys.
+
+  ```bash
+  Please verify tx data on Ledger and confirm it.
+  ```
+
+  ```bash
+  Generating and sending transaction... Transaction successfully sent
+  { id: '1',
+    jsonrpc: '2.0',
+    result:
+    { Info: 'Non-contract txn, sent to shard',
+      TranID:
+        'b290c19c050a74450e41e04e602f6a8c6439a662c0034bf787eacc851742a1d0' } }
+  ```
+
+
+  **ADVANCED USAGE**
+  You can send a transaction using non-interactive command:
+
+  ```bash
+  zilcli ledger:send --to=zil1uncj8cf3dft6ss8m4356c7gjyq57lwxpqhwzld --amount=0.5 --gas=1000
+  
+  # Gas must be defined in LI
+  ```
 
 ## How to verify a .ZIL Domain? (**2.0**)
-  TEst
+  You can verify [Unstoppable Domains](https://unstoppabledomains.com) Addresses by using the ```zilcli domains:resolve``` command:
+
+  ```bash
+  zilcli domains:resolve zilcli.zil
+  { addresses: {}, meta: { owner: null, ttl: 0 } }
+  ```
+
+  The Unstoppable Domains service is not fully Launched. Upon launch we will be implementing future API methods such as register, bid, manage.
 
 ## How to use the Local Address Book? (**2.0**)
+  The Local Address Book is basically a Contacts List that you can fully manage. You can define custom names for different zil addresses and use those names when making transactions so it's easier for your readability.
+
+
+  List all contacts
+  ```bash
+  zilcli contacts:list
+
+  Name      Address                                    Old address                                
+  teste     zil1ut6c039fmmeuxy50m5dwl9dwhrkyhv6lmrzyn9 0xE2f587c4A9DeF3c3128fDD1AEF95Aeb8Ec4bB35F
+  ```
+
+
+  Add a new contact
+  ```bash
+  zilcli contacts:add zil1ut6c039fmmeuxy50m5dwl9dwhrkyhv6lmrzyn9 test
+
+  Contact test successfully saved.
+  ```
+
+  Remove an existing contact
+  ```bash
+  zilcli contacts:remove test
+
+   Contact test successfully removed.
+  ```
+
+
+For more advanced commands you can the below the full list: 
 
 # Commands list
 <!-- commands -->
