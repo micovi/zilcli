@@ -210,6 +210,7 @@ $ zilcli tx:batch --file=${PWD}/batch1.txt --gasprice=3000000000
 # ${PWD} returns the current path opened in terminal
 ```
 
+**File example:** [batch.txt](https://zilcli.app/batch.txt)
 
 2. You will have to wait for the transaction to complete:
 
