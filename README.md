@@ -1,6 +1,6 @@
-zilcli
-======
 ![Logo](https://raw.githubusercontent.com/micovi/zilcli/master/docs/logo-small.png)
+======
+
 
 Command Line Interface for Zilliqa Blockchain
 
