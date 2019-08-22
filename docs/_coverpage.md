@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-# ![zilcli Logo](https://raw.githubusercontent.com/micovi/zilcli/master/docs/logo.png) <small>2.0</small>
+# ![zilcli Logo](https://raw.githubusercontent.com/micovi/zilcli/master/docs/logo-small.png) <small>2.0</small>
 
 > Command Line Interface for Zilliqa Blockchain.
 
