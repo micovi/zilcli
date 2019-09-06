@@ -168,7 +168,7 @@ class LedgerSendCommand extends Command {
 
         cli.action.start('Generating and sending transaction');
 
-        const newtx = await axios.post(base.apiAddress, {
+        const newtx: any = await axios.post(base.apiAddress, {
           id: "1",
           jsonrpc: "2.0",
           method: "CreateTransaction",
@@ -187,10 +187,14 @@ class LedgerSendCommand extends Command {
           }]
         });
 
-        cli.action.stop('Transaction successfully sent');
+        if (newtx.data.error !== undefined && newtx.data.error.code == -8) {
+          cli.action.stop('User action rejected.');
+        } else {
+          cli.action.stop('Transaction successfully sent');
 
-        console.log(newtx.data);
-
+          console.log(newtx.data.result.Info);
+          console.log(`TranID: https://viewblock.io/zilliqa/tx/${newtx.data.result.TranID}`);
+        }
       }
 
     } catch (error) {

@@ -180,7 +180,7 @@ class TxSendCommand extends Command {
 
       await cli.url('[Open Explorer] ', `https://viewblock.io/zilliqa/tx/${sendTx.id}`);
 
-      console.log(sendTx);
+      console.log(`TranID: https://viewblock.io/zilliqa/tx/${sendTx.id}`);
     } catch (error) {
       this.error(error);
     }
