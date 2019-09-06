@@ -1,10 +1,10 @@
 {
-  "version": "2.0.0-beta.4.f8be9ea",
+  "version": "2.0.0-beta.5.67aee18",
   "baseDir": "zilcli",
   "channel": "beta",
-  "gz": "https://zilcli-vs.s3.amazonaws.com/channels/beta/zilcli-v2.0.0-beta.4/zilcli-v2.0.0-beta.4.tar.gz",
-  "xz": "https://zilcli-vs.s3.amazonaws.com/channels/beta/zilcli-v2.0.0-beta.4/zilcli-v2.0.0-beta.4.tar.xz",
-  "sha256gz": "3961ca1fc4e1156926b9c6f79334dec9e31fdeaf023a486080bf588efc23be65",
+  "gz": "https://zilcli-v2.s3.amazonaws.com/channels/beta/zilcli-v2.0.0-beta.5/zilcli-v2.0.0-beta.5.tar.gz",
+  "xz": "https://zilcli-v2.s3.amazonaws.com/channels/beta/zilcli-v2.0.0-beta.5/zilcli-v2.0.0-beta.5.tar.xz",
+  "sha256gz": "ff9bf5680bdf76035fa15121c66c3ecc76e6ab5734807f1d44c91dba76de0642",
   "rollout": false,
   "node": {
     "compatible": ">=8.0.0",
