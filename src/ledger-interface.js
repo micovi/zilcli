@@ -74,7 +74,7 @@ class Zilliqa {
       .then(response => {
         // The first PubKeyByteLen bytes are the public address.
         const publicKey = response.toString("hex").slice(0, (PubKeyByteLen * 2));
-        return publicKey ;
+        return publicKey;
       });
   }
 
@@ -92,13 +92,13 @@ class Zilliqa {
       .then(response => {
         // After the first PubKeyByteLen bytes, the remaining is the bech32 address string.
         const pubAddr = response.slice(PubKeyByteLen, PubKeyByteLen + Bech32AddrLen).toString("utf-8");
-        return pubAddr ;
+        return pubAddr;
       }).catch(error => {
-        if(error.statusCode === 26368) {
+        if (error.statusCode === 26368) {
           throw Error('Please check if Zilliqa App is open on Ledger.')
         }
         throw Error(error.message);
-      }) ;
+      });
   }
 
   signTxn(keyIndex, txnParams) {
@@ -123,10 +123,12 @@ class Zilliqa {
     }
 
     var txnBytes = txnEncoder(txnParams);
-
     console.log('Please verify tx data on Ledger and confirm it.');
 
-    const STREAM_LEN = 32; // Stream in batches of STREAM_LEN bytes each.
+    const message = JSON.stringify({ "Encoded transaction": txnBytes.toString('hex') }, null, 2);
+    console.log(chalk.green(message));
+
+    const STREAM_LEN = 128; // Stream in batches of STREAM_LEN bytes each.
     var txn1Bytes;
     if (txnBytes.length > STREAM_LEN) {
       txn1Bytes = txnBytes.slice(0, STREAM_LEN);
@@ -171,7 +173,9 @@ class Zilliqa {
           txnNSizeBytes.writeInt32LE(txnNBytes.length);
           hostBytesLeftBytes.writeInt32LE(txnBytes.length);
           const payload = Buffer.concat([hostBytesLeftBytes, txnNSizeBytes, txnNBytes]);
-          return transport.exchange(payload).then(cb);
+          // Except for the payload, all others are ignored in the device.
+          // Only for the first send above will those paramters matter.
+          return transport.send(CLA, INS.signTxn, P2, P2, payload).then(cb);
         }
         return response;
       })
