@@ -122,6 +122,8 @@ class Zilliqa {
       txnParams.gasLimit = Long.fromNumber(txnParams.gasLimit);
     }
 
+
+
     var txnBytes = txnEncoder(txnParams);
     console.log('Please verify tx data on Ledger and confirm it.');
 
