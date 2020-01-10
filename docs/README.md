@@ -340,7 +340,23 @@ For more advanced usage check [`zilcli tx:batch`](#zilcli-txbatch) command
    Contact test successfully removed.
   ```
 
+## How to sign a transaction? (**2.0.1**)
+  You can use the zilcli tool offline to only sign a transaction that you defined using a init.json file.
 
+  `tx:sign` requires 2 arguments: `init.json` path and `output.json` path. `contract.scilla` is only required if you try to sign a contract deploy transaction.
+
+  Sign a contract transaction from the current directory. `init.json` contains tx init data and `contract.scilla` is the contract definition.
+
+  `output.json` is the file where the transaction will be written along with it's signature.
+
+  ```bash
+  zilcli tx:sign ${PWD}/test.json ${PWD}/output.json ${PWD}/contract.scilla
+
+Signature:  b11629f14165d46772d420c3bef90ff5e52f7d204af920afb6f1b568381f6427323243d074658a6282ea7af25f9dd01a00ae9eacfdf5cf5001ca836b1b8a27ce
+Transaction successfully generated in:  /Users/test/zilcli-test/output.json
+  ```
+
+  
 For more advanced commands you can the below the full list: 
 
 # Commands list
