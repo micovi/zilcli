@@ -39,7 +39,8 @@ class TxSendCommand extends Command {
     {
       name: 'contract',
       description: 'Absolute file path for contract.scilla',
-      required: false
+      required: false,
+      default: 'no-contract'
     },
   ];
 
@@ -103,7 +104,6 @@ class TxSendCommand extends Command {
         throws: true,
       });
 
-      const contractData = fs.readFileSync(contract, 'utf8');
 
       // Convert to Zilliqa types
       if (!(initData.amount instanceof BN)) {
@@ -118,8 +118,12 @@ class TxSendCommand extends Command {
         initData.gasLimit = Long.fromNumber(initData.gasLimit);
       }
 
+      if (contract !== 'no-contract') {
+        const contractData = fs.readFileSync(contract, 'utf8');
 
-      initData.code = contractData.replace(/\n/g,"");
+        initData.code = contractData.replace(/\n/g,"");
+       }
+
       initData.data = JSON.stringify(initData.data).replace(/\\"/g, '"');
 
       const encoded = txnEncoder(initData);
@@ -130,7 +134,6 @@ class TxSendCommand extends Command {
       console.log('Signature: ', signature);
 
       initData.signature = signature;
-
 
       fs.writeJSONSync(output, initData);
 
