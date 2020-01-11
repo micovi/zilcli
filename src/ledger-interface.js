@@ -206,11 +206,12 @@ class Zilliqa {
       txnParams.gasLimit = Long.fromNumber(txnParams.gasLimit);
     }
 
-    console.log('trying to encode', txnParams);
-
     var txnBytes = txnEncoder(txnParams);
+
+    console.log('Please verify tx data on Ledger and confirm it.');
+
     const message = JSON.stringify({ "Encoded transaction": txnBytes.toString('hex') }, null, 2);
-    console.log(message);
+    console.log(chalk.green(message));
 
     const STREAM_LEN = 200; // Stream in batches of STREAM_LEN bytes each.
     var txn1Bytes;

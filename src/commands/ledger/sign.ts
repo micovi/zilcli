@@ -21,7 +21,7 @@ async function open() {
   return t;
 }
 
-class LedgerSendCommand extends Command {
+class LedgerSignCommand extends Command {
   static description = `Sign a tx json file with Ledger Device`;
 
   static args = [
@@ -31,10 +31,15 @@ class LedgerSendCommand extends Command {
       required: true
     },
     {
+      name: 'output',
+      description: 'Absolute file path for output.json',
+      required: true
+    },
+    {
       name: 'contract',
       description: 'Absolute file path for contract.scilla',
       required: false,
-      default: false
+      default: undefined
     }
   ];
 
@@ -49,9 +54,9 @@ class LedgerSendCommand extends Command {
 
     const zil = new Z(transport);
 
-    const { args } = this.parse(LedgerSendCommand);
+    const { args } = this.parse(LedgerSignCommand);
 
-    let { init, contract } = args;
+    let { init, contract, output } = args;
 
     try {
 
@@ -66,20 +71,22 @@ class LedgerSendCommand extends Command {
         throws: true,
       });
 
-      if (contract !== false) {
+      initData.data = JSON.stringify(initData.data).replace(/\\"/g, '"');
+
+      if (contract !== undefined) {
         const contractData = fs.readFileSync(contract, 'utf8');
 
         initData.code = contractData.replace(/\n/g, "");
       }
 
-
       let signed = await zil.signTxn(0, initData);
 
       initData.signature = signed.sig;
 
-      console.log('Signed transaction exported to signed.json');
+      fs.writeJSONSync(output, initData);
 
-      console.log(initData);
+      console.log('Transaction successfully signed and generated in: ', output);
+
     } catch (error) {
       this.error(error.message);
       this.error(error);
@@ -88,4 +95,4 @@ class LedgerSendCommand extends Command {
 }
 
 
-module.exports = LedgerSendCommand;
+module.exports = LedgerSignCommand;

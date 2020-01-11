@@ -16,7 +16,7 @@ import { Zilliqa } from '@zilliqa-js/zilliqa';
 import { BN, units, Long } from '@zilliqa-js/util';
 import { Transaction } from '@zilliqa-js/account';
 
-class TxSendCommand extends Command {
+class TxSignCommand extends Command {
   static description = `Sign a transaction
 `;
 
@@ -40,13 +40,13 @@ class TxSendCommand extends Command {
       name: 'contract',
       description: 'Absolute file path for contract.scilla',
       required: false,
-      default: 'no-contract'
+      default: undefined
     },
   ];
 
   async run() {
     const base = new Zilcli.Base(this.config.home);
-    const { flags, args } = this.parse(TxSendCommand);
+    const { flags, args } = this.parse(TxSignCommand);
 
     let { usePrivateKey } = flags;
     let {init, contract, output} = args;
@@ -118,7 +118,7 @@ class TxSendCommand extends Command {
         initData.gasLimit = Long.fromNumber(initData.gasLimit);
       }
 
-      if (contract !== 'no-contract') {
+      if (contract !== undefined) {
         const contractData = fs.readFileSync(contract, 'utf8');
 
         initData.code = contractData.replace(/\n/g,"");
@@ -146,4 +146,4 @@ class TxSendCommand extends Command {
 }
 
 
-module.exports = TxSendCommand;
+module.exports = TxSignCommand;

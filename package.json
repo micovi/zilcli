@@ -1,7 +1,7 @@
 {
   "name": "zilcli",
   "description": "Command Line Interface for Zilliqa Blockchain",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "author": "Ovidiu Miclea <micleaovidiul@gmail.com> @micovi",
   "bin": {
     "zilcli": "./bin/run"
@@ -35,7 +35,7 @@
     "zil-ledger-js-interface": "^0.1.2"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "^1.22.0",
+    "@oclif/dev-cli": "^1.22.2",
     "@oclif/test": "^1.2.4",
     "@oclif/tslint": "^3.1.1",
     "@types/chai": "^4.1.7",
