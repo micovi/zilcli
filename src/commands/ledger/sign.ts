@@ -33,7 +33,8 @@ class LedgerSendCommand extends Command {
     {
       name: 'contract',
       description: 'Absolute file path for contract.scilla',
-      required: false
+      required: false,
+      default: false
     }
   ];
 
@@ -65,11 +66,12 @@ class LedgerSendCommand extends Command {
         throws: true,
       });
 
-      const contractData = fs.readFileSync(contract, 'utf8');
+      if (contract !== false) {
+        const contractData = fs.readFileSync(contract, 'utf8');
 
+        initData.code = contractData.replace(/\n/g, "");
+      }
 
-      initData.code = contractData.replace(/\n/g,"");
-      initData.data = JSON.stringify(initData.data).replace(/\\"/g, '"');
 
       let signed = await zil.signTxn(0, initData);
 
