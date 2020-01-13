@@ -356,6 +356,43 @@ Signature:  b11629f14165d46772d420c3bef90ff5e52f7d204af920afb6f1b568381f64273232
 Transaction successfully generated in:  /Users/test/zilcli-test/output.json
   ```
 
+  Here is an example of `init.json` file: https://github.com/micovi/zilcli/blob/master/init.json
+
+### `tx:sign INIT OUTPUT [CONTRACT]`
+
+Sign a transaction
+
+```
+USAGE
+  $ zilcli tx:sign INIT OUTPUT [CONTRACT]
+
+ARGUMENTS
+  INIT      Absolute file path for init.json
+  OUTPUT    Absolute file path for output.json
+  CONTRACT  Absolute file path for contract.scilla
+
+OPTIONS
+  -f, --from=from      account name or privateKey
+  -p, --usePrivateKey  Private Key
+```
+
+## How to sign a transaction using Ledger? (**2.0.1**)
+  You can use the zilcli tool offline to only sign a transaction that you defined using a init.json file.
+
+  `ledger:sign` requires 2 arguments: `init.json` path and `output.json` path. `contract.scilla` is only required if you try to sign a contract deploy transaction.
+
+  Sign a contract transaction from the current directory. `init.json` contains tx init data and `contract.scilla` is the contract definition.
+
+  `output.json` is the file where the transaction will be written along with it's signature.
+
+  Here is an example of `init.json` file: https://github.com/micovi/zilcli/blob/master/init.json
+
+  ```bash
+  zilcli ledger:sign ${PWD}/test.json ${PWD}/output.json ${PWD}/contract.scilla
+
+Signature:  b11629f14165d46772d420c3bef90ff5e52f7d204af920afb6f1b568381f6427323243d074658a6282ea7af25f9dd01a00ae9eacfdf5cf5001ca836b1b8a27ce
+Transaction successfully generated in:  /Users/test/zilcli-test/output.json
+  ```
   
 For more advanced commands you can the below the full list: 
 
