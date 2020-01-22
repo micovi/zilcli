@@ -104,6 +104,7 @@ class TxSignCommand extends Command {
         throws: true,
       });
 
+      const old = {...initData};
 
       // Convert to Zilliqa types
       if (!(initData.amount instanceof BN)) {
@@ -135,7 +136,7 @@ class TxSignCommand extends Command {
 
       initData.signature = signature;
 
-      fs.writeJSONSync(output, initData);
+      fs.writeJSONSync(output, {...initData, gasPrice: old.gasPrice.toString(), gasLimit: old.gasLimit.toString(), amount: old.amount.toString()});
 
       console.log('Transaction successfully generated in: ', output);
       }

@@ -71,6 +71,8 @@ class LedgerSignCommand extends Command {
         throws: true,
       });
 
+      const old = {...initData};
+
       initData.data = JSON.stringify(initData.data).replace(/\\"/g, '"');
 
       if (contract !== undefined) {
@@ -83,7 +85,7 @@ class LedgerSignCommand extends Command {
 
       initData.signature = signed.sig;
 
-      fs.writeJSONSync(output, initData);
+      fs.writeJSONSync(output, { ...initData, gasPrice: old.gasPrice.toString(), gasLimit: old.gasLimit.toString(), amount: old.amount.toString() });
 
       console.log('Transaction successfully signed and generated in: ', output);
 
