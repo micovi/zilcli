@@ -78,7 +78,7 @@ DESCRIPTION
       $ zilcli blockchain:balance --batch=/home/user/addresses.txt
 ```
 
-_See code: [src/commands/blockchain/balance.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/blockchain/balance.ts)_
+_See code: [src/commands/blockchain/balance.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/blockchain/balance.ts)_
 
 ## `zilcli blockchain:info`
 
@@ -93,7 +93,7 @@ DESCRIPTION
   such as the number of nodes per shard.
 ```
 
-_See code: [src/commands/blockchain/info.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/blockchain/info.ts)_
+_See code: [src/commands/blockchain/info.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/blockchain/info.ts)_
 
 ## `zilcli blockchain:txblock [BLOCK_NUMBER]`
 
@@ -111,7 +111,7 @@ DESCRIPTION
   By passing no argument it will retrieve the latest tx block.
 ```
 
-_See code: [src/commands/blockchain/txblock.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/blockchain/txblock.ts)_
+_See code: [src/commands/blockchain/txblock.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/blockchain/txblock.ts)_
 
 ## `zilcli contacts:add [ADDRESS] [NAME]`
 
@@ -130,7 +130,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/contacts/add.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/contacts/add.ts)_
+_See code: [src/commands/contacts/add.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/contacts/add.ts)_
 
 ## `zilcli contacts:list`
 
@@ -145,7 +145,7 @@ DESCRIPTION
   Name, Address, Old Address format
 ```
 
-_See code: [src/commands/contacts/list.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/contacts/list.ts)_
+_See code: [src/commands/contacts/list.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/contacts/list.ts)_
 
 ## `zilcli contacts:remove [NAME]`
 
@@ -162,7 +162,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/contacts/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/contacts/remove.ts)_
+_See code: [src/commands/contacts/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/contacts/remove.ts)_
 
 ## `zilcli domains:resolve [DOMAIN]`
 
@@ -179,7 +179,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/domains/resolve.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/domains/resolve.ts)_
+_See code: [src/commands/domains/resolve.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/domains/resolve.ts)_
 
 ## `zilcli help [COMMAND]`
 
@@ -207,7 +207,7 @@ USAGE
   $ zilcli ledger:account
 ```
 
-_See code: [src/commands/ledger/account.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/ledger/account.ts)_
+_See code: [src/commands/ledger/account.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/ledger/account.ts)_
 
 ## `zilcli ledger:send`
 
@@ -225,7 +225,7 @@ OPTIONS
 DESCRIPTION
 ```
 
-_See code: [src/commands/ledger/send.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/ledger/send.ts)_
+_See code: [src/commands/ledger/send.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/ledger/send.ts)_
 
 ## `zilcli ledger:sign INIT OUTPUT [CONTRACT]`
 
@@ -241,7 +241,7 @@ ARGUMENTS
   CONTRACT  Absolute file path for contract.scilla
 ```
 
-_See code: [src/commands/ledger/sign.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/ledger/sign.ts)_
+_See code: [src/commands/ledger/sign.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/ledger/sign.ts)_
 
 ## `zilcli plugins`
 
@@ -381,7 +381,7 @@ DESCRIPTION
   privatekey destination 0.5
 ```
 
-_See code: [src/commands/tx/batch.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/tx/batch.ts)_
+_See code: [src/commands/tx/batch.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/tx/batch.ts)_
 
 ## `zilcli tx:details [HASH]`
 
@@ -398,7 +398,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/tx/details.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/tx/details.ts)_
+_See code: [src/commands/tx/details.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/tx/details.ts)_
 
 ## `zilcli tx:recent [LIMIT]`
 
@@ -415,7 +415,7 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/tx/recent.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/tx/recent.ts)_
+_See code: [src/commands/tx/recent.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/tx/recent.ts)_
 
 ## `zilcli tx:send`
 
@@ -435,7 +435,7 @@ OPTIONS
 DESCRIPTION
 ```
 
-_See code: [src/commands/tx/send.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/tx/send.ts)_
+_See code: [src/commands/tx/send.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/tx/send.ts)_
 
 ## `zilcli tx:sign INIT OUTPUT [CONTRACT]`
 
@@ -455,7 +455,7 @@ OPTIONS
   -p, --usePrivateKey  Private Key
 ```
 
-_See code: [src/commands/tx/sign.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/tx/sign.ts)_
+_See code: [src/commands/tx/sign.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/tx/sign.ts)_
 
 ## `zilcli update [CHANNEL]`
 
@@ -475,7 +475,7 @@ USAGE
   $ zilcli wallet:create
 ```
 
-_See code: [src/commands/wallet/create.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/wallet/create.ts)_
+_See code: [src/commands/wallet/create.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/wallet/create.ts)_
 
 ## `zilcli wallet:details [NAME]`
 
@@ -492,7 +492,7 @@ DESCRIPTION
   Returned data: Name, ID, Address, Balance privateKey, publicKey, Network details
 ```
 
-_See code: [src/commands/wallet/details.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/wallet/details.ts)_
+_See code: [src/commands/wallet/details.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/wallet/details.ts)_
 
 ## `zilcli wallet:export [NAME]`
 
@@ -509,7 +509,7 @@ DESCRIPTION
   Export wallet account to keystore file encoded with passphrase.
 ```
 
-_See code: [src/commands/wallet/export.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/wallet/export.ts)_
+_See code: [src/commands/wallet/export.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/wallet/export.ts)_
 
 ## `zilcli wallet:import [NAME] [PRIVATEKEY]`
 
@@ -531,7 +531,7 @@ DESCRIPTION
   Keystore file must be located in $HOME/.zilcli/ directory.
 ```
 
-_See code: [src/commands/wallet/import.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/wallet/import.ts)_
+_See code: [src/commands/wallet/import.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/wallet/import.ts)_
 
 ## `zilcli wallet:list`
 
@@ -546,7 +546,7 @@ DESCRIPTION
   ID, Name, Address, Balance
 ```
 
-_See code: [src/commands/wallet/list.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/wallet/list.ts)_
+_See code: [src/commands/wallet/list.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/wallet/list.ts)_
 
 ## `zilcli wallet:remove [NAME]`
 
@@ -563,5 +563,5 @@ DESCRIPTION
   ...
 ```
 
-_See code: [src/commands/wallet/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.3/src/commands/wallet/remove.ts)_
+_See code: [src/commands/wallet/remove.ts](https://github.com/micovi/zilcli/blob/v2.0.4/src/commands/wallet/remove.ts)_
 <!-- commandsstop -->
