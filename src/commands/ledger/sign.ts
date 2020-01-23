@@ -71,7 +71,7 @@ class LedgerSignCommand extends Command {
         throws: true,
       });
 
-      const old = {...initData};
+      const old = { ...initData };
 
       initData.data = JSON.stringify(initData.data).replace(/\\"/g, '"');
 
@@ -81,11 +81,11 @@ class LedgerSignCommand extends Command {
         initData.code = contractData.replace(/\n/g, "");
       }
 
-      let signed = await zil.signTxn(0, initData);
+      let signed = await zil.signTxn(0, { ...initData, pubKey: pubkey });
 
       initData.signature = signed.sig;
 
-      fs.writeJSONSync(output, { ...initData, gasPrice: old.gasPrice.toString(), gasLimit: old.gasLimit.toString(), amount: old.amount.toString() });
+      fs.writeJSONSync(output, { ...initData, gasPrice: old.gasPrice.toString(), gasLimit: old.gasLimit.toString(), amount: old.amount.toString(), priority: false, pubKey: pubkey });
 
       console.log('Transaction successfully signed and generated in: ', output);
 

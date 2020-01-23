@@ -99,7 +99,6 @@ class TxSignCommand extends Command {
 
     try {
 
-
       const initData = fs.readJSONSync(init, {
         throws: true,
       });
