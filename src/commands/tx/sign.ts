@@ -85,13 +85,13 @@ class TxSignCommand extends Command {
       ])
 
       from = responses.account;
+      const internalFrom = base.getAccountByName(from);
+
       passphrase = responses.passphrase;
     }
 
     // Initialize zilliqa and wallet
     const zilliqa = new Zilliqa(base.apiAddress);
-
-    const internalFrom = base.getAccountByName(from);
 
     const internalAccount = (usePrivateKey === true)
       ? await zilliqa.wallet.addByPrivateKey(privateKey)
