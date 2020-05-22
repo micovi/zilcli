@@ -124,6 +124,7 @@ class TxSignCommand extends Command {
         initData.code = contractData.replace(/\n/g,"");
        }
 
+      initData.pubKey = zilliqa.wallet.defaultAccount.publicKey
       initData.data = JSON.stringify(initData.data).replace(/\\"/g, '"');
 
       const encoded = txnEncoder(initData);
